@@ -1333,315 +1333,148 @@
            SLIDE 0 · Home / Spider Chart  (center)
       ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
 
-      <!-- SLIDE 0: Home / Radar — center -->
-
-      <!-- SLIDE 0: Home / Radar -->
+            <!-- SLIDE 0: Home / Radar — center -->
       <div class="carousel-slide pos-center" data-index="0">
         <div class="phone-shell">
           <div class="phone-screen">
             <svg viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="bg0" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0c0c0c"/>
-                  <stop offset="100%" stop-color="#060606"/>
+                  <stop offset="0%" stop-color="#0d0d0d"/>
+                  <stop offset="100%" stop-color="#080808"/>
                 </linearGradient>
-                <linearGradient id="rcard" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1b1b1b"/>
-                  <stop offset="100%" stop-color="#121212"/>
+                <linearGradient id="rc0" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1d1d1d"/>
+                  <stop offset="100%" stop-color="#141414"/>
                 </linearGradient>
-                <filter id="og0">
-                  <feGaussianBlur stdDeviation="5" result="b"/>
-                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                <filter id="ogf">
+                  <feGaussianBlur stdDeviation="3" result="b"/>
+                  <feComposite in="SourceGraphic" in2="b" operator="over"/>
                 </filter>
               </defs>
+              <!-- BG -->
               <rect width="390" height="844" fill="url(#bg0)"/>
+
+              <!-- Status bar -->
+              <text x="28" y="32" fill="#ffffff" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">15:29</text>
+              <path d="M304 22 Q315 14 326 22" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M308 27 Q315 20 322 27" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="315" cy="32" r="2.2" fill="#fff"/>
+              <rect x="340" y="20" width="26" height="12" rx="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <rect x="342" y="22" width="19" height="8" rx="1.5" fill="#fff"/>
+              <rect x="366" y="23" width="2.5" height="6" rx="1" fill="#fff" opacity="0.5"/>
+
+              <!-- Dynamic Island -->
+              <rect x="148" y="10" width="94" height="26" rx="13" fill="#000"/>
 
               <!-- "Today" label -->
-              <text x="20" y="66" fill="#505050" font-size="13" font-family="-apple-system,sans-serif" letter-spacing="0.3">Today</text>
-              <!-- "Mar 22" big heading -->
-              <text x="20" y="116" fill="#ffffff" font-size="50" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif" letter-spacing="-2">Mar 22</text>
+              <text x="28" y="80" fill="#888" font-size="14" font-weight="500" font-family="-apple-system,sans-serif">Today</text>
 
-              <!-- Streak pill — orange border, dark fill, flame + 1 -->
-              <rect x="296" y="57" width="76" height="38" rx="19" fill="#1d1d1d" stroke="#6b3a10" stroke-width="1.5"/>
-              <text x="315" y="81" fill="#e07b2a" font-size="17" font-family="-apple-system,sans-serif">🔥 </text>
-              <text x="340" y="81" fill="#e07b2a" font-size="16" font-weight="600" font-family="-apple-system,sans-serif">1</text>
+              <!-- "Mar 22" big header -->
+              <text x="28" y="120" fill="#fff" font-size="42" font-weight="700" font-family="-apple-system,sans-serif">Mar 22</text>
 
-              <!-- Radar card background — large dark card -->
-              <rect x="10" y="128" width="370" height="318" rx="22" fill="url(#rcard)"/>
+              <!-- Streak pill -->
+              <rect x="300" y="84" width="68" height="34" rx="17" fill="#1e1a14" stroke="#7a3a08" stroke-width="1.5"/>
+              <text x="314" y="107" fill="#e07b2a" font-size="15" font-family="Apple Color Emoji,sans-serif">&#x1F525;</text>
+              <text x="336" y="107" fill="#e07b2a" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">1</text>
 
-              <!-- Pentagon grid lines.
-                   The screenshot shows a regular pentagon with:
-                   - Center at (195, 288)
-                   - 5 rings radiating outward
-                   - Labels: Lose weight (top), Learn a new... (upper-right),
-                     Run 15k (lower-right), Save money (lower-left), Sleep routi... (upper-left)
-                   Pentagon points (angles: -90°, -18°, 54°, 126°, 198° from top):
-                     Top    (-90°): 195, 170
-                     UR     (-18°): 284, 214
-                     LR     ( 54°): 252, 308
-                     LL     (126°): 138, 308
-                     UL     (198°): 106, 214
-              -->
-              <g fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1">
-                <!-- outermost (100%) -->
-                <polygon points="195,170 284,214 252,308 138,308 106,214"/>
-                <!-- 80% -->
-                <polygon points="195,194 266,220 238,295 152,295 124,220"/>
-                <!-- 60% -->
-                <polygon points="195,218 248,226 224,282 166,282 142,226"/>
-                <!-- 40% -->
-                <polygon points="195,242 230,232 210,269 180,269 160,232"/>
-                <!-- 20% — tiny inner -->
-                <polygon points="195,265 212,238 196,256 194,256 178,238"/>
+              <!-- Radar card -->
+              <rect x="16" y="136" width="358" height="212" rx="18" fill="url(#rc0)"/>
+
+              <!-- Grid rings (center 195,278) -->
+              <g fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1">
+                <polygon points="195,154 278,208 248,302 142,302 112,208"/>
+                <polygon points="195,171 261,213 234,291 156,291 129,213"/>
+                <polygon points="195,188 244,218 220,280 170,280 146,218"/>
+                <polygon points="195,205 227,223 206,269 184,269 163,223"/>
+                <polygon points="195,222 210,228 192,258 198,258 180,228"/>
               </g>
-              <!-- Axis spokes from center (195,288) to each outer vertex -->
+              <!-- Spokes -->
               <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-                <line x1="195" y1="288" x2="195" y2="170"/>
-                <line x1="195" y1="288" x2="284" y2="214"/>
-                <line x1="195" y1="288" x2="252" y2="308"/>
-                <line x1="195" y1="288" x2="138" y2="308"/>
-                <line x1="195" y1="288" x2="106" y2="214"/>
+                <line x1="195" y1="154" x2="195" y2="278"/>
+                <line x1="278" y1="208" x2="195" y2="278"/>
+                <line x1="248" y1="302" x2="195" y2="278"/>
+                <line x1="142" y1="302" x2="195" y2="278"/>
+                <line x1="112" y1="208" x2="195" y2="278"/>
               </g>
 
-              <!-- Orange data polygon.
-                   From screenshot the shape is clearly:
-                   - Top (Lose weight): at full radius →  195,170
-                   - Upper-right (Learn a new ~65%): pulled inward →  252,237
-                   - Lower-right (Run 15k 100%): full →  252,308
-                   - Lower-left (Save money ~50%): half way →  167,298
-                   - Upper-left (Sleep routine 100%): full →  106,214
-                   This creates the distinctive wide-left, narrow-right shape in the screenshot -->
+              <!-- Data polygon: top(LoseWeight100%)=195,154 | topRight(Learn66%)=244,240
+                   bottomRight(Run15k100%)=248,302 | bottomLeft(SaveMoney50%)=169,290 | topLeft(Sleep100%)=112,208 -->
               <polygon
-                points="195,170  252,237  252,308  167,298  106,214"
-                fill="rgba(224,123,42,0.20)"
-                stroke="#e07b2a"
-                stroke-width="2.3"
-                stroke-linejoin="round"
-                filter="url(#og0)"
-              />
+                points="195,154 244,240 248,302 169,290 112,208"
+                fill="rgba(224,123,42,0.22)"
+                stroke="#e07b2a" stroke-width="2" stroke-linejoin="round"
+                filter="url(#ogf)"/>
 
-              <!-- Axis labels — matching screenshot positions exactly -->
-              <text x="195" y="161" text-anchor="middle" fill="#787878" font-size="12" font-family="-apple-system,sans-serif">Lose weight</text>
-              <text x="291" y="213" fill="#787878" font-size="12" font-family="-apple-system,sans-serif">Learn a new...</text>
-              <text x="257" y="327" fill="#787878" font-size="12" font-family="-apple-system,sans-serif">Run 15k</text>
-              <text x="46"  y="327" fill="#787878" font-size="12" font-family="-apple-system,sans-serif">Save money</text>
-              <text x="10"  y="213" fill="#787878" font-size="12" font-family="-apple-system,sans-serif">Sleep routi...</text>
+              <!-- Axis labels -->
+              <text x="195" y="147" text-anchor="middle" fill="#7a7a7a" font-size="11" font-family="-apple-system,sans-serif">Lose weight</text>
+              <text x="284" y="207" fill="#7a7a7a" font-size="11" font-family="-apple-system,sans-serif">Learn a new...</text>
+              <text x="248" y="320" fill="#7a7a7a" font-size="11" font-family="-apple-system,sans-serif">Run 15k</text>
+              <text x="52" y="320" fill="#7a7a7a" font-size="11" font-family="-apple-system,sans-serif">Save money</text>
+              <text x="14" y="207" fill="#7a7a7a" font-size="11" font-family="-apple-system,sans-serif">Sleep rout...</text>
 
-              <!-- Goal rows — 5 rows, 50px apart, below the radar card -->
-              <!-- Row 1 -->
-              <line x1="20" y1="464" x2="370" y2="464" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="456" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Lose weight</text>
-              <text x="268" y="456" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">2/2</text>
-              <text x="302" y="456" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="458" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-              <!-- Row 2 -->
-              <line x1="20" y1="514" x2="370" y2="514" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="506" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Learn a new language</text>
-              <text x="268" y="506" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">2/3</text>
-              <text x="302" y="506" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">66%</text>
-              <text x="378" y="508" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-              <!-- Row 3 -->
-              <line x1="20" y1="564" x2="370" y2="564" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="556" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Run 15k</text>
-              <text x="268" y="556" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
-              <text x="302" y="556" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="558" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-              <!-- Row 4 -->
-              <line x1="20" y1="614" x2="370" y2="614" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="606" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Save money</text>
-              <text x="268" y="606" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/2</text>
-              <text x="302" y="606" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">50%</text>
-              <text x="378" y="608" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-              <!-- Row 5 -->
-              <line x1="20" y1="664" x2="370" y2="664" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="656" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Sleep routine</text>
-              <text x="268" y="656" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
-              <text x="302" y="656" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="658" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
+              <!-- Goal rows -->
+              <!-- separator -->
+              <line x1="16" y1="360" x2="374" y2="360" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
 
-              <!-- Bottom nav pill — Home active -->
-              <rect x="16" y="762" width="358" height="66" rx="33" fill="#1a1a1a"/>
-              <rect x="21" y="768" width="80" height="54" rx="27" fill="#282828"/>
-              <text x="61" y="792" text-anchor="middle" fill="#e07b2a" font-size="22" font-family="-apple-system,sans-serif">⌂ </text>
-              <text x="61" y="808" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Home</text>
-              <text x="154" y="791" text-anchor="middle" fill="#3a3a3a" font-size="18" font-family="-apple-system,sans-serif">✓ </text>
-              <text x="154" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Tracker</text>
-              <text x="243" y="791" text-anchor="middle" fill="#3a3a3a" font-size="17" font-family="-apple-system,sans-serif">▦ </text>
-              <text x="243" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
-              <text x="332" y="791" text-anchor="middle" fill="#3a3a3a" font-size="17" font-family="-apple-system,sans-serif">○ </text>
-              <text x="332" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Profile</text>
-            </svg>
-          </div>
-          <div class="dynamic-island"></div>
-          <div class="phone-home-bar"></div>
-          <div class="phone-side-btn"></div>
-          <div class="phone-vol-up"></div>
-          <div class="phone-vol-dn"></div>
-        </div>
-      </div>
-        <div class="phone-shell">
-          <div class="phone-screen">
-            <svg viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="bg0" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0c0c0c"/>
-                  <stop offset="100%" stop-color="#060606"/>
-                </linearGradient>
-                <!-- Radar card is a noticeably lighter dark surface -->
-                <linearGradient id="rcard" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1a1a1a"/>
-                  <stop offset="100%" stop-color="#111111"/>
-                </linearGradient>
-                <filter id="og0">
-                  <feGaussianBlur stdDeviation="6" result="b"/>
-                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-              <rect width="390" height="844" fill="url(#bg0)"/>
+              <!-- Lose weight -->
+              <text x="28" y="385" fill="#efefef" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Lose weight</text>
+              <text x="294" y="385" fill="#666" font-size="13" font-family="-apple-system,sans-serif">2/2</text>
+              <text x="328" y="385" fill="#e07b2a" font-size="13" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
+              <text x="369" y="385" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">&#x276F;</text>
+              <line x1="16" y1="400" x2="374" y2="400" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
 
-              <!-- "Today" small gray label -->
-              <text x="20" y="66" fill="#505050" font-size="13" font-family="-apple-system,sans-serif" letter-spacing="0.3">Today</text>
-              <!-- "Mar 22" large bold heading — matches screenshot exactly -->
-              <text x="20" y="116" fill="#ffffff" font-size="50" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif" letter-spacing="-2">Mar 22</text>
+              <!-- Learn a new language -->
+              <text x="28" y="425" fill="#efefef" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Learn a new language</text>
+              <text x="294" y="425" fill="#666" font-size="13" font-family="-apple-system,sans-serif">2/3</text>
+              <text x="334" y="425" fill="#e07b2a" font-size="13" font-weight="700" font-family="-apple-system,sans-serif">66%</text>
+              <text x="369" y="425" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">&#x276F;</text>
+              <line x1="16" y1="440" x2="374" y2="440" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
 
-              <!-- Streak pill — top right, orange border pill with flame emoji + number -->
-              <rect x="296" y="56" width="76" height="38" rx="19" fill="none" stroke="#8a4a10" stroke-width="1.5"/>
-              <rect x="297" y="57" width="74" height="36" rx="18" fill="#1e1e1e"/>
-              <text x="316" y="80" fill="#e07b2a" font-size="18" font-family="-apple-system,sans-serif">🔥 </text>
-              <text x="340" y="81" fill="#e07b2a" font-size="16" font-weight="600" font-family="-apple-system,sans-serif">1</text>
+              <!-- Run 15k -->
+              <text x="28" y="465" fill="#efefef" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Run 15k</text>
+              <text x="294" y="465" fill="#666" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
+              <text x="328" y="465" fill="#e07b2a" font-size="13" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
+              <text x="369" y="465" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">&#x276F;</text>
+              <line x1="16" y1="480" x2="374" y2="480" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
 
-              <!-- ═ ═ ═  RADAR CARD ═ ═ ═ 
-                   In the screenshot this card goes from just below the date
-                   to about y=540 — it's the dominant element on screen.
-                   The card has a distinct dark surface color vs background. -->
-              <rect x="10" y="128" width="370" height="324" rx="22" fill="url(#rcard)"/>
+              <!-- Save money -->
+              <text x="28" y="505" fill="#efefef" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Save money</text>
+              <text x="294" y="505" fill="#666" font-size="13" font-family="-apple-system,sans-serif">1/2</text>
+              <text x="334" y="505" fill="#e07b2a" font-size="13" font-weight="700" font-family="-apple-system,sans-serif">50%</text>
+              <text x="369" y="505" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">&#x276F;</text>
+              <line x1="16" y1="520" x2="374" y2="520" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
 
-              <!-- Pentagon rings — 5 concentric rings, very faint white strokes
-                   Center of pentagon: cx=195, cy=290
-                   Outer pentagon vertices (r=118):
-                     Top:         195, 172
-                     Upper-right: 284, 218   (18° from top, clockwise)
-                     Lower-right: 249, 310   (90°+18°=108° from top... adjusted for pentagon)
-                     Lower-left:  141, 310
-                     Upper-left:  106, 218
+              <!-- Sleep routine -->
+              <text x="28" y="545" fill="#efefef" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Sleep routine</text>
+              <text x="294" y="545" fill="#666" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
+              <text x="328" y="545" fill="#e07b2a" font-size="13" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
+              <text x="369" y="545" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">&#x276F;</text>
 
-                   The screenshot pentagon has the axes pointing:
-                   - straight UP (Lose weight)
-                   - upper-RIGHT at ~35° from vertical (Learn a new)
-                   - lower-RIGHT at ~35° below horizontal (Run 15k)
-                   - lower-LEFT mirror (Save money)
-                   - upper-LEFT mirror (Sleep routine)
-              -->
-              <g fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1">
-                <!-- outermost ring -->
-                <polygon points="195,172 284,218 249,310 141,310 106,218"/>
-                <!-- 80% -->
-                <polygon points="195,196 266,225 236,299 154,299 124,225"/>
-                <!-- 60% -->
-                <polygon points="195,220 248,232 223,288 167,288 142,232"/>
-                <!-- 40% -->
-                <polygon points="195,244 230,239 210,277 180,277 160,239"/>
-                <!-- 20% -->
-                <polygon points="195,268 212,246 197,266 193,266 178,246"/>
-              </g>
-
-              <!-- Axis spokes — from center outward to each vertex -->
-              <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
-                <line x1="195" y1="290" x2="195" y2="172"/>
-                <line x1="195" y1="290" x2="284" y2="218"/>
-                <line x1="195" y1="290" x2="249" y2="310"/>
-                <line x1="195" y1="290" x2="141" y2="310"/>
-                <line x1="195" y1="290" x2="106" y2="218"/>
-              </g>
-
-              <!-- ═ ═ ═  ORANGE DATA POLYGON ═ ═ ═ 
-                   Carefully mapped from screenshot:
-                   - Lose weight (top, 100%): full outer vertex →  195,172
-                   - Learn a new (UR, ~65%): between center and outer →  ~252,240
-                   - Run 15k (LR, 100%): full outer →  249,310
-                   - Save money (LL, ~50%): halfway →  ~168,300
-                   - Sleep routine (UL, 100%): full outer →  106,218
-
-                   The screenshot shape looks like: large triangle on left,
-                   with the right side pulled inward significantly at "Learn a new" -->
-              <polygon
-                points="195,172  252,240  249,310  168,300  106,218"
-                fill="rgba(224,123,42,0.20)"
-                stroke="#e07b2a"
-                stroke-width="2.4"
-                stroke-linejoin="round"
-                filter="url(#og0)"
-              />
-
-              <!-- Axis labels — exact positions from screenshot -->
-              <!-- "Lose weight" centered above top vertex -->
-              <text x="195" y="162" text-anchor="middle" fill="#808080" font-size="12" font-family="-apple-system,sans-serif">Lose weight</text>
-              <!-- "Learn a new..." to the right -->
-              <text x="292" y="217" fill="#808080" font-size="12" font-family="-apple-system,sans-serif">Learn a new...</text>
-              <!-- "Run 15k" lower right -->
-              <text x="254" y="330" fill="#808080" font-size="12" font-family="-apple-system,sans-serif">Run 15k</text>
-              <!-- "Save money" lower left -->
-              <text x="42" y="330" fill="#808080" font-size="12" font-family="-apple-system,sans-serif">Save money</text>
-              <!-- "Sleep routi..." to the left -->
-              <text x="10" y="217" fill="#808080" font-size="12" font-family="-apple-system,sans-serif">Sleep routi...</text>
-
-              <!-- ═ ═ ═  GOAL ROWS ═ ═ ═ 
-                   In the screenshot these are bold white text, faded fraction,
-                   bold white percentage, orange arrow.
-                   The rows start immediately after the card ends (~y=452)
-                   with ~50px spacing between them. -->
-
-              <!-- Row 1: Lose weight -->
-              <line x1="20" y1="468" x2="370" y2="468" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="460" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Lose weight</text>
-              <text x="268" y="460" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">2/2</text>
-              <text x="302" y="460" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="462" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-
-              <!-- Row 2: Learn a new language -->
-              <line x1="20" y1="518" x2="370" y2="518" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="510" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Learn a new language</text>
-              <text x="268" y="510" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">2/3</text>
-              <text x="302" y="510" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">66%</text>
-              <text x="378" y="512" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-
-              <!-- Row 3: Run 15k -->
-              <line x1="20" y1="568" x2="370" y2="568" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="560" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Run 15k</text>
-              <text x="268" y="560" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
-              <text x="302" y="560" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="562" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-
-              <!-- Row 4: Save money -->
-              <line x1="20" y1="618" x2="370" y2="618" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="610" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Save money</text>
-              <text x="268" y="610" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/2</text>
-              <text x="302" y="610" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">50%</text>
-              <text x="378" y="612" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-
-              <!-- Row 5: Sleep routine -->
-              <line x1="20" y1="668" x2="370" y2="668" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-              <text x="20"  y="660" fill="#f5f5f5" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">Sleep routine</text>
-              <text x="268" y="660" fill="#484848" font-size="13" font-family="-apple-system,sans-serif">1/1</text>
-              <text x="302" y="660" fill="#ffffff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">100%</text>
-              <text x="378" y="662" text-anchor="end" fill="#e07b2a" font-size="22" font-weight="700" font-family="-apple-system,sans-serif"></text>
-
-              <!-- Bottom nav pill — Home is active (inside highlight pill) -->
-              <rect x="16" y="762" width="358" height="66" rx="33" fill="#1a1a1a"/>
-              <!-- Active pill behind Home icon -->
-              <rect x="21" y="768" width="80" height="54" rx="27" fill="#282828"/>
-              <!-- Home icon + label orange -->
-              <text x="61" y="793" text-anchor="middle" fill="#e07b2a" font-size="22" font-family="-apple-system,sans-serif">⌂ </text>
-              <text x="61" y="808" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Home</text>
+              <!-- Tab bar -->
+              <rect x="0" y="768" width="390" height="76" fill="#111"/>
+              <line x1="0" y1="768" x2="390" y2="768" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <!-- Home active pill -->
+              <rect x="18" y="774" width="70" height="34" rx="17" fill="#2d1a06"/>
+              <!-- home icon -->
+              <path d="M38 800 L38 791 L53 782 L68 791 L68 800 Z" fill="none" stroke="#e07b2a" stroke-width="1.8" stroke-linejoin="round"/>
+              <rect x="46" y="793" width="14" height="7" rx="1.5" fill="#e07b2a"/>
+              <text x="53" y="818" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Home</text>
               <!-- Tracker -->
-              <text x="154" y="791" text-anchor="middle" fill="#3a3a3a" font-size="18" font-family="-apple-system,sans-serif">✓ </text>
-              <text x="154" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Tracker</text>
+              <rect x="131" y="782" width="14" height="14" rx="3.5" fill="none" stroke="#555" stroke-width="1.8"/>
+              <path d="M134 789 L137 792 L142 786" stroke="#555" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="138" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Tracker</text>
               <!-- Calendar -->
-              <text x="243" y="791" text-anchor="middle" fill="#3a3a3a" font-size="17" font-family="-apple-system,sans-serif">▦ </text>
-              <text x="243" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
+              <rect x="183" y="781" width="18" height="16" rx="3" fill="none" stroke="#555" stroke-width="1.8"/>
+              <line x1="186" y1="787" x2="198" y2="787" stroke="#555" stroke-width="1.5"/>
+              <text x="192" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
               <!-- Profile -->
-              <text x="332" y="791" text-anchor="middle" fill="#3a3a3a" font-size="17" font-family="-apple-system,sans-serif">○ </text>
-              <text x="332" y="808" text-anchor="middle" fill="#3a3a3a" font-size="10" font-family="-apple-system,sans-serif">Profile</text>
+              <circle cx="248" cy="788" r="5" fill="none" stroke="#555" stroke-width="1.8"/>
+              <path d="M241 800 Q248 794 255 800" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/>
+              <text x="248" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Profile</text>
+
+              <!-- Home indicator bar -->
+              <rect x="145" y="834" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
             </svg>
           </div>
           <div class="dynamic-island"></div>
@@ -1658,123 +1491,146 @@
           <div class="phone-screen">
             <svg viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c0c0c"/><stop offset="100%" stop-color="#060606"/></linearGradient>
-                <linearGradient id="c1"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1c1c1c"/><stop offset="100%" stop-color="#131313"/></linearGradient>
+                <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0d0d0d"/>
+                  <stop offset="100%" stop-color="#080808"/>
+                </linearGradient>
+                <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1e1e1e"/>
+                  <stop offset="100%" stop-color="#181818"/>
+                </linearGradient>
               </defs>
               <rect width="390" height="844" fill="url(#bg1)"/>
 
               <!-- Status bar -->
-              <text x="20" y="52" fill="#c8c8c8" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">15:30</text>
-              <circle cx="318" cy="45" r="2.5" fill="#c8c8c8"/>
-              <circle cx="328" cy="45" r="2.5" fill="#c8c8c8"/>
-              <circle cx="338" cy="45" r="2.5" fill="#c8c8c8"/>
-              <rect x="352" y="38" width="28" height="16" rx="4.5" fill="none" stroke="#c8c8c8" stroke-width="1.5"/>
-              <rect x="354" y="40" width="22" height="12" rx="2.5" fill="#c8c8c8"/>
-              <rect x="380" y="42.5" width="3" height="7" rx="1.5" fill="#c8c8c8"/>
+              <text x="28" y="32" fill="#fff" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">15:30</text>
+              <circle cx="308" cy="26" r="2.8" fill="#fff"/>
+              <circle cx="318" cy="26" r="2.8" fill="#fff"/>
+              <circle cx="328" cy="26" r="2.8" fill="#fff"/>
+              <rect x="340" y="20" width="26" height="12" rx="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <rect x="342" y="22" width="19" height="8" rx="1.5" fill="#fff"/>
+              <rect x="366" y="23" width="2.5" height="6" rx="1" fill="#fff" opacity="0.5"/>
 
-              <!-- Title + Edit -->
-              <text x="195" y="90" text-anchor="middle" fill="#f0f0f0" font-size="19" font-weight="700" font-family="-apple-system,sans-serif">Tracker</text>
-              <rect x="302" y="67" width="68" height="34" rx="17" fill="#e07b2a"/>
-              <text x="336" y="89" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Edit</text>
+              <!-- Dynamic Island -->
+              <rect x="148" y="10" width="94" height="26" rx="13" fill="#000"/>
+
+              <!-- "Tracker" title -->
+              <text x="195" y="78" text-anchor="middle" fill="#fff" font-size="18" font-weight="600" font-family="-apple-system,sans-serif">Tracker</text>
+
+              <!-- Edit button -->
+              <rect x="318" y="60" width="50" height="28" rx="14" fill="#e07b2a"/>
+              <text x="343" y="79" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" font-family="-apple-system,sans-serif">Edit</text>
 
               <!-- Week row -->
-              <text x="20"  y="130" fill="#f0f0f0" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">This week</text>
-              <text x="134" y="130" fill="#464646" font-size="14" font-family="-apple-system,sans-serif">Mar 16  Mar 22</text>
-              <text x="349" y="130" fill="#e07b2a" font-size="20" font-family="-apple-system,sans-serif"></text>
-              <text x="370" y="130" fill="#e07b2a" font-size="20" font-family="-apple-system,sans-serif"></text>
+              <text x="22" y="114" fill="#f0f0f0" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">This week</text>
+              <text x="122" y="114" fill="#777" font-size="13" font-family="-apple-system,sans-serif">Mar 16 &#x2013; Mar 22</text>
+              <text x="314" y="114" fill="#e07b2a" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">&#x276E;</text>
+              <text x="340" y="114" fill="#e07b2a" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">&#x276F;</text>
 
-              <!-- LOSE WEIGHT expanded card -->
-              <rect x="10" y="144" width="370" height="232" rx="20" fill="url(#c1)"/>
-              <text x="22" y="176" fill="#f0f0f0" font-size="18" font-weight="700" font-family="-apple-system,sans-serif">Lose weight</text>
-              <text x="368" y="176" text-anchor="end" fill="#e07b2a" font-size="14" font-family="-apple-system,sans-serif">∧ </text>
-
-              <!-- Day column headers -->
-              <text x="22"  y="200" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">Habit</text>
-              <text x="90"  y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">M</text>
-              <text x="133" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">T</text>
-              <text x="176" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">W</text>
-              <text x="219" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">T</text>
-              <text x="262" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">F</text>
-              <text x="305" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">S</text>
-              <text x="348" y="200" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">S</text>
-
-              <!-- GYM row: M✓  T_ W_ T_ F_ S✓  S_ (from screenshot: only M and second-to-last S checked) -->
-              <text x="22" y="237" fill="#a0a0a0" font-size="14" font-family="-apple-system,sans-serif">Gym</text>
-              <rect x="69"  y="215" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="88"  y="239" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <rect x="112" y="215" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="155" y="215" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="198" y="215" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="241" y="215" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="284" y="215" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="303" y="239" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <rect x="327" y="215" width="38" height="38" rx="10" fill="#1e1e1e"/>
-
-              <!-- RUN row: M_ T_ W_ T_ F✓  S✓  S_ -->
-              <text x="22" y="281" fill="#a0a0a0" font-size="14" font-family="-apple-system,sans-serif">Run</text>
-              <rect x="69"  y="259" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="112" y="259" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="155" y="259" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="198" y="259" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="241" y="259" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="260" y="283" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <rect x="284" y="259" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="303" y="283" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <rect x="327" y="259" width="38" height="38" rx="10" fill="#1e1e1e"/>
-
+              <!-- ══ SECTION: Lose weight (expanded) ══ -->
+              <rect x="16" y="126" width="358" height="168" rx="14" fill="url(#card1)"/>
+              <text x="30" y="150" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Lose weight</text>
+              <!-- up chevron -->
+              <path d="M360 153 L367 146 L374 153" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+              <!-- header row -->
+              <text x="30" y="172" fill="#555" font-size="11" font-family="-apple-system,sans-serif">Habit</text>
+              <text x="106" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">M</text>
+              <text x="136" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">T</text>
+              <text x="166" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">W</text>
+              <text x="196" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">T</text>
+              <text x="226" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">F</text>
+              <text x="256" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
+              <text x="286" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
+              <!-- Gym row: M✓  S✓ -->
+              <text x="30" y="198" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Gym</text>
+              <rect x="93" y="181" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M97 194 L101 198 L109 190" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="123" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="153" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="183" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="213" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="243" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="273" y="181" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M277 194 L281 198 L289 190" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Run row: F✓  S✓ -->
+              <text x="30" y="228" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Run</text>
+              <rect x="93" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="123" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="153" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="183" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="213" y="211" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M217 224 L221 228 L229 220" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="243" y="211" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M247 224 L251 228 L259 220" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="273" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
               <!-- Edit Habits link -->
-              <text x="195" y="360" text-anchor="middle" fill="#e07b2a" font-size="14" font-family="-apple-system,sans-serif">Edit Habits  ✎ </text>
+              <text x="195" y="278" text-anchor="middle" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">Edit Habits &#x270E;</text>
 
-              <!-- LEARN A NEW LANGUAGE — collapsed -->
-              <rect x="10" y="386" width="370" height="54" rx="17" fill="url(#c1)"/>
-              <text x="22" y="419" fill="#f0f0f0" font-size="17" font-weight="600" font-family="-apple-system,sans-serif">Learn a new language</text>
-              <text x="368" y="419" text-anchor="end" fill="#464646" font-size="18" font-family="-apple-system,sans-serif">∨ </text>
+              <!-- ══ SECTION: Learn a new language (collapsed) ══ -->
+              <rect x="16" y="304" width="358" height="46" rx="14" fill="url(#card1)"/>
+              <text x="30" y="331" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Learn a new language</text>
+              <path d="M360 327 L367 334 L374 327" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- RUN 15K — expanded -->
-              <rect x="10" y="450" width="370" height="162" rx="20" fill="url(#c1)"/>
-              <text x="22" y="481" fill="#f0f0f0" font-size="18" font-weight="700" font-family="-apple-system,sans-serif">Run 15k</text>
-              <text x="368" y="481" text-anchor="end" fill="#e07b2a" font-size="14" font-family="-apple-system,sans-serif">∧ </text>
-              <text x="22"  y="505" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">Habit</text>
-              <text x="90"  y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">M</text>
-              <text x="133" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">T</text>
-              <text x="176" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">W</text>
-              <text x="219" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">T</text>
-              <text x="262" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">F</text>
-              <text x="305" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">S</text>
-              <text x="348" y="505" text-anchor="middle" fill="#464646" font-size="12" font-family="-apple-system,sans-serif">S</text>
-              <text x="22" y="541" fill="#a0a0a0" font-size="14" font-family="-apple-system,sans-serif">Run</text>
-              <rect x="69"  y="519" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="112" y="519" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="155" y="519" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="198" y="519" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="241" y="519" width="38" height="38" rx="10" fill="#1e1e1e"/>
-              <rect x="284" y="519" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="303" y="543" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <rect x="327" y="519" width="38" height="38" rx="10" fill="#e07b2a"/>
-              <text x="346" y="543" text-anchor="middle" fill="#fff" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <text x="195" y="594" text-anchor="middle" fill="#e07b2a" font-size="14" font-family="-apple-system,sans-serif">Edit Habits  ✎ </text>
+              <!-- ══ SECTION: Run 15k (expanded) ══ -->
+              <rect x="16" y="360" width="358" height="136" rx="14" fill="url(#card1)"/>
+              <text x="30" y="384" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Run 15k</text>
+              <path d="M360 387 L367 380 L374 387" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+              <!-- headers -->
+              <text x="30" y="404" fill="#555" font-size="11" font-family="-apple-system,sans-serif">Habit</text>
+              <text x="106" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">M</text>
+              <text x="136" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">T</text>
+              <text x="166" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">W</text>
+              <text x="196" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">T</text>
+              <text x="226" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">F</text>
+              <text x="256" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
+              <text x="286" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
+              <!-- Run row: F✓  S✓ -->
+              <text x="30" y="430" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Run</text>
+              <rect x="93" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="123" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="153" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="183" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <rect x="213" y="413" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M217 426 L221 430 L229 422" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="243" y="413" width="26" height="26" rx="7" fill="#e07b2a"/>
+              <path d="M247 426 L251 430 L259 422" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="273" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
+              <!-- Edit Habits link -->
+              <text x="195" y="476" text-anchor="middle" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">Edit Habits &#x270E;</text>
 
-              <!-- SAVE MONEY — collapsed -->
-              <rect x="10" y="622" width="370" height="54" rx="17" fill="url(#c1)"/>
-              <text x="22" y="655" fill="#f0f0f0" font-size="17" font-weight="600" font-family="-apple-system,sans-serif">Save money</text>
-              <text x="368" y="655" text-anchor="end" fill="#464646" font-size="18" font-family="-apple-system,sans-serif">∨ </text>
+              <!-- ══ SECTION: Save money (collapsed) ══ -->
+              <rect x="16" y="506" width="358" height="46" rx="14" fill="url(#card1)"/>
+              <text x="30" y="533" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Save money</text>
+              <path d="M360 529 L367 536 L374 529" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- SLEEP ROUTINE — partially visible at bottom -->
-              <rect x="10" y="686" width="370" height="54" rx="17" fill="url(#c1)"/>
-              <text x="22" y="719" fill="#f0f0f0" font-size="17" font-weight="600" font-family="-apple-system,sans-serif">Sleep routine</text>
-              <text x="368" y="719" text-anchor="end" fill="#464646" font-size="18" font-family="-apple-system,sans-serif">∨ </text>
+              <!-- ══ SECTION: Sleep routine (collapsed) ══ -->
+              <rect x="16" y="562" width="358" height="46" rx="14" fill="url(#card1)"/>
+              <text x="30" y="589" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Sleep routine</text>
+              <path d="M360 585 L367 592 L374 585" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- Bottom nav — Tracker active -->
-              <rect x="16" y="762" width="358" height="66" rx="33" fill="#1a1a1a"/>
-              <text x="61"  y="791" text-anchor="middle" fill="#383838" font-size="22" font-family="-apple-system,sans-serif">⌂ </text>
-              <text x="61"  y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Home</text>
-              <rect x="106" y="768" width="90" height="54" rx="27" fill="#252525"/>
-              <text x="151" y="791" text-anchor="middle" fill="#e07b2a" font-size="18" font-weight="700" font-family="-apple-system,sans-serif">✓ </text>
-              <text x="151" y="808" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Tracker</text>
-              <text x="243" y="791" text-anchor="middle" fill="#383838" font-size="17" font-family="-apple-system,sans-serif">▦ </text>
-              <text x="243" y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
-              <text x="332" y="791" text-anchor="middle" fill="#383838" font-size="17" font-family="-apple-system,sans-serif">○ </text>
-              <text x="332" y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Profile</text>
+              <!-- Tab bar -->
+              <rect x="0" y="768" width="390" height="76" fill="#111"/>
+              <line x1="0" y1="768" x2="390" y2="768" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <!-- Home -->
+              <path d="M42 800 L42 790 L53 782 L64 790 L64 800 Z" fill="none" stroke="#555" stroke-width="1.8" stroke-linejoin="round"/>
+              <rect x="47" y="793" width="12" height="7" rx="1.5" fill="#555" opacity="0.7"/>
+              <text x="53" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Home</text>
+              <!-- Tracker active pill -->
+              <rect x="97" y="774" width="72" height="34" rx="17" fill="#2d1a06"/>
+              <rect x="112" y="783" width="14" height="14" rx="3.5" fill="#e07b2a"/>
+              <path d="M115 790 L118 793 L124 787" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="133" y="797" fill="#e07b2a" font-size="10" font-family="-apple-system,sans-serif"> </text>
+              <text x="133" y="812" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Tracker</text>
+              <!-- Calendar -->
+              <rect x="183" y="781" width="18" height="16" rx="3" fill="none" stroke="#555" stroke-width="1.8"/>
+              <line x1="186" y1="787" x2="198" y2="787" stroke="#555" stroke-width="1.5"/>
+              <text x="192" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
+              <!-- Profile -->
+              <circle cx="248" cy="788" r="5" fill="none" stroke="#555" stroke-width="1.8"/>
+              <path d="M241 800 Q248 794 255 800" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"/>
+              <text x="248" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Profile</text>
+              <!-- Home indicator -->
+              <rect x="145" y="834" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
             </svg>
           </div>
           <div class="dynamic-island"></div>
@@ -1791,88 +1647,133 @@
           <div class="phone-screen">
             <svg viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c0c0c"/><stop offset="100%" stop-color="#060606"/></linearGradient>
-                <linearGradient id="c2"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1c1c1c"/><stop offset="100%" stop-color="#131313"/></linearGradient>
-                <linearGradient id="t2"  x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#191919"/><stop offset="100%" stop-color="#101010"/></linearGradient>
+                <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0d0d0d"/>
+                  <stop offset="100%" stop-color="#080808"/>
+                </linearGradient>
+                <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1e1e1e"/>
+                  <stop offset="100%" stop-color="#181818"/>
+                </linearGradient>
+                <linearGradient id="statCard" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#242424"/>
+                  <stop offset="100%" stop-color="#1c1c1c"/>
+                </linearGradient>
               </defs>
               <rect width="390" height="844" fill="url(#bg2)"/>
 
-              <!-- Profile header card -->
-              <rect x="10" y="54" width="370" height="122" rx="22" fill="url(#c2)"/>
-              <text x="24" y="104" fill="#ffffff" font-size="38" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif" letter-spacing="-0.5">Profile</text>
-              <text x="24" y="130" fill="#545454" font-size="15" font-family="-apple-system,sans-serif">Your stats and settings</text>
-              <rect x="328" y="70" width="40" height="40" rx="11" fill="#1e1e1e"/>
-              <text x="348" y="96" text-anchor="middle" fill="#606060" font-size="22" font-family="-apple-system,sans-serif">⚙ </text>
+              <!-- Status bar -->
+              <text x="28" y="32" fill="#fff" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">15:30</text>
+              <path d="M304 22 Q315 14 326 22" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M308 27 Q315 20 322 27" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <circle cx="315" cy="32" r="2.2" fill="#fff"/>
+              <rect x="340" y="20" width="26" height="12" rx="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+              <rect x="342" y="22" width="19" height="8" rx="1.5" fill="#fff"/>
+              <rect x="366" y="23" width="2.5" height="6" rx="1" fill="#fff" opacity="0.5"/>
 
-              <!-- Stats card (outer container) -->
-              <rect x="10" y="190" width="370" height="254" rx="22" fill="url(#c2)"/>
-              <text x="24" y="220" fill="#505050" font-size="14" font-weight="500" font-family="-apple-system,sans-serif">Stats</text>
+              <!-- Dynamic Island -->
+              <rect x="148" y="10" width="94" height="26" rx="13" fill="#000"/>
 
-              <!-- 2×2 stat tiles — matching screenshot proportions -->
+              <!-- "Profile" nav label -->
+              <text x="195" y="76" text-anchor="middle" fill="#888" font-size="14" font-family="-apple-system,sans-serif">Profile</text>
+
+              <!-- ── Profile card ── -->
+              <rect x="16" y="90" width="358" height="88" rx="18" fill="url(#card2)"/>
+              <!-- Big "Profile" text -->
+              <text x="30" y="128" fill="#fff" font-size="30" font-weight="700" font-family="-apple-system,sans-serif">Profile</text>
+              <!-- subtitle -->
+              <text x="30" y="152" fill="#666" font-size="13" font-family="-apple-system,sans-serif">Your stats and settings</text>
+              <!-- gear icon (settings) -->
+              <circle cx="354" cy="120" r="14" fill="#2a2a2a"/>
+              <circle cx="354" cy="120" r="6" fill="none" stroke="#888" stroke-width="2"/>
+              <circle cx="354" cy="120" r="2.5" fill="#888"/>
+              <line x1="354" y1="112" x2="354" y2="108" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+              <line x1="354" y1="128" x2="354" y2="132" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+              <line x1="346" y1="120" x2="342" y2="120" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+              <line x1="362" y1="120" x2="366" y2="120" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- ── Stats section ── -->
+              <rect x="16" y="192" width="358" height="230" rx="18" fill="url(#card2)"/>
+              <text x="30" y="218" fill="#f0f0f0" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Stats</text>
+
+              <!-- stat cards grid: 2x2 -->
               <!-- Top-left: Consistency -->
-              <rect x="18" y="230" width="176" height="90" rx="16" fill="url(#t2)"/>
-              <text x="32" y="254" fill="#525252" font-size="13" font-family="-apple-system,sans-serif">Consistency</text>
-              <text x="32" y="292" fill="#ffffff" font-size="34" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif">4%</text>
-              <text x="32" y="312" fill="#3e3e3e" font-size="12" font-family="-apple-system,sans-serif">Last 30 days</text>
+              <rect x="26" y="228" width="164" height="84" rx="12" fill="url(#statCard)"/>
+              <text x="40" y="252" fill="#888" font-size="12" font-family="-apple-system,sans-serif">Consistency</text>
+              <text x="40" y="286" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,sans-serif">4%</text>
+              <text x="40" y="304" fill="#666" font-size="11" font-family="-apple-system,sans-serif">Last 30 days</text>
 
               <!-- Top-right: All Habits -->
-              <rect x="202" y="230" width="176" height="90" rx="16" fill="url(#t2)"/>
-              <text x="216" y="254" fill="#525252" font-size="13" font-family="-apple-system,sans-serif">All Habits</text>
-              <text x="216" y="292" fill="#ffffff" font-size="34" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif">9</text>
-              <text x="216" y="312" fill="#3e3e3e" font-size="12" font-family="-apple-system,sans-serif">Catalog</text>
+              <rect x="200" y="228" width="164" height="84" rx="12" fill="url(#statCard)"/>
+              <text x="214" y="252" fill="#888" font-size="12" font-family="-apple-system,sans-serif">All Habits</text>
+              <text x="214" y="286" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,sans-serif">9</text>
+              <text x="214" y="304" fill="#666" font-size="11" font-family="-apple-system,sans-serif">Catalog</text>
 
               <!-- Bottom-left: Completed -->
-              <rect x="18" y="330" width="176" height="90" rx="16" fill="url(#t2)"/>
-              <text x="32" y="354" fill="#525252" font-size="13" font-family="-apple-system,sans-serif">Completed</text>
-              <text x="32" y="392" fill="#ffffff" font-size="34" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif">12</text>
-              <text x="32" y="412" fill="#3e3e3e" font-size="12" font-family="-apple-system,sans-serif">All time</text>
+              <rect x="26" y="322" width="164" height="84" rx="12" fill="url(#statCard)"/>
+              <text x="40" y="346" fill="#888" font-size="12" font-family="-apple-system,sans-serif">Completed</text>
+              <text x="40" y="380" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,sans-serif">12</text>
+              <text x="40" y="398" fill="#666" font-size="11" font-family="-apple-system,sans-serif">All time</text>
 
               <!-- Bottom-right: Best Streak -->
-              <rect x="202" y="330" width="176" height="90" rx="16" fill="url(#t2)"/>
-              <text x="216" y="354" fill="#525252" font-size="13" font-family="-apple-system,sans-serif">Best Streak</text>
-              <text x="216" y="392" fill="#ffffff" font-size="34" font-weight="700" font-family="-apple-system,Helvetica Neue,sans-serif">1</text>
-              <text x="216" y="412" fill="#3e3e3e" font-size="12" font-family="-apple-system,sans-serif">Fire days</text>
+              <rect x="200" y="322" width="164" height="84" rx="12" fill="url(#statCard)"/>
+              <text x="214" y="346" fill="#888" font-size="12" font-family="-apple-system,sans-serif">Best Streak</text>
+              <text x="214" y="380" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,sans-serif">1</text>
+              <text x="214" y="398" fill="#666" font-size="11" font-family="-apple-system,sans-serif">Fire days</text>
 
-              <!-- Friends card -->
-              <rect x="10" y="458" width="370" height="180" rx="22" fill="url(#c2)"/>
-              <text x="24" y="492" fill="#c8c8c8" font-size="18" font-weight="700" font-family="-apple-system,sans-serif">Friends</text>
-              <text x="24" y="520" fill="#484848" font-size="15" font-family="-apple-system,sans-serif">Coming soon.</text>
+              <!-- ── Friends section ── -->
+              <rect x="16" y="436" width="358" height="140" rx="18" fill="url(#card2)"/>
+              <text x="30" y="462" fill="#f0f0f0" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Friends</text>
+              <text x="30" y="490" fill="#666" font-size="14" font-family="-apple-system,sans-serif">Coming soon.</text>
+              <!-- 5 avatar circles: orange, green, orange, grey, blue -->
+              <circle cx="46" cy="535" r="22" fill="#c27a1a"/>
+              <circle cx="46" cy="535" r="18" fill="#d68a20"/>
+              <path d="M38 540 Q46 528 54 540" fill="#d68a20" stroke="#d68a20" stroke-width="1"/>
+              <circle cx="46" cy="531" r="6" fill="#111" opacity="0.3"/>
 
-              <!-- 5 avatar circles — orange, green, orange, gray, blue — with person inside -->
-              <circle cx="54"  cy="570" r="28" fill="#c07018"/>
-              <circle cx="54"  cy="560" r="10" fill="rgba(255,255,255,0.70)"/>
-              <ellipse cx="54" cy="584" rx="16" ry="10" fill="rgba(255,255,255,0.60)"/>
+              <circle cx="96" cy="535" r="22" fill="#1a7a3a"/>
+              <circle cx="96" cy="535" r="18" fill="#2a8a4a"/>
+              <circle cx="96" cy="531" r="6" fill="#111" opacity="0.3"/>
+              <path d="M88 540 Q96 528 104 540" fill="#2a8a4a" stroke="#2a8a4a" stroke-width="1"/>
 
-              <circle cx="112" cy="570" r="28" fill="#167840"/>
-              <circle cx="112" cy="560" r="10" fill="rgba(255,255,255,0.70)"/>
-              <ellipse cx="112" cy="584" rx="16" ry="10" fill="rgba(255,255,255,0.60)"/>
+              <circle cx="146" cy="535" r="22" fill="#c27a1a"/>
+              <circle cx="146" cy="535" r="18" fill="#d68a20"/>
+              <circle cx="146" cy="531" r="6" fill="#111" opacity="0.3"/>
+              <path d="M138 540 Q146 528 154 540" fill="#d68a20" stroke="#d68a20" stroke-width="1"/>
 
-              <circle cx="170" cy="570" r="28" fill="#c07018"/>
-              <circle cx="170" cy="560" r="10" fill="rgba(255,255,255,0.70)"/>
-              <ellipse cx="170" cy="584" rx="16" ry="10" fill="rgba(255,255,255,0.60)"/>
+              <circle cx="196" cy="535" r="22" fill="#3a3a3a"/>
+              <circle cx="196" cy="535" r="18" fill="#4a4a4a"/>
+              <circle cx="196" cy="531" r="6" fill="#111" opacity="0.3"/>
+              <path d="M188 540 Q196 528 204 540" fill="#4a4a4a" stroke="#4a4a4a" stroke-width="1"/>
 
-              <circle cx="228" cy="570" r="28" fill="#3c3c3c"/>
-              <circle cx="228" cy="560" r="10" fill="rgba(255,255,255,0.50)"/>
-              <ellipse cx="228" cy="584" rx="16" ry="10" fill="rgba(255,255,255,0.40)"/>
+              <circle cx="246" cy="535" r="22" fill="#1a4a8a"/>
+              <circle cx="246" cy="535" r="18" fill="#2a5a9a"/>
+              <circle cx="246" cy="531" r="6" fill="#111" opacity="0.3"/>
+              <path d="M238 540 Q246 528 254 540" fill="#2a5a9a" stroke="#2a5a9a" stroke-width="1"/>
 
-              <circle cx="286" cy="570" r="28" fill="#1a4a90"/>
-              <circle cx="286" cy="560" r="10" fill="rgba(255,255,255,0.70)"/>
-              <ellipse cx="286" cy="584" rx="16" ry="10" fill="rgba(255,255,255,0.60)"/>
-
-              <!-- Bottom nav — Profile active -->
-              <rect x="16" y="762" width="358" height="66" rx="33" fill="#1a1a1a"/>
-              <text x="61"  y="791" text-anchor="middle" fill="#383838" font-size="22" font-family="-apple-system,sans-serif">⌂ </text>
-              <text x="61"  y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Home</text>
-              <text x="154" y="791" text-anchor="middle" fill="#383838" font-size="18" font-family="-apple-system,sans-serif">✓ </text>
-              <text x="154" y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Tracker</text>
-              <text x="243" y="791" text-anchor="middle" fill="#383838" font-size="17" font-family="-apple-system,sans-serif">▦ </text>
-              <text x="243" y="808" text-anchor="middle" fill="#383838" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
+              <!-- Tab bar -->
+              <rect x="0" y="768" width="390" height="76" fill="#111"/>
+              <line x1="0" y1="768" x2="390" y2="768" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+              <!-- Home -->
+              <path d="M42 800 L42 790 L53 782 L64 790 L64 800 Z" fill="none" stroke="#555" stroke-width="1.8" stroke-linejoin="round"/>
+              <rect x="47" y="793" width="12" height="7" rx="1.5" fill="#555" opacity="0.7"/>
+              <text x="53" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Home</text>
+              <!-- Tracker -->
+              <rect x="112" y="782" width="14" height="14" rx="3.5" fill="none" stroke="#555" stroke-width="1.8"/>
+              <path d="M115 789 L118 792 L124 786" stroke="#555" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="119" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Tracker</text>
+              <!-- Calendar -->
+              <rect x="175" y="781" width="18" height="16" rx="3" fill="none" stroke="#555" stroke-width="1.8"/>
+              <line x1="178" y1="787" x2="190" y2="787" stroke="#555" stroke-width="1.5"/>
+              <text x="184" y="818" text-anchor="middle" fill="#555" font-size="10" font-family="-apple-system,sans-serif">Calendar</text>
               <!-- Profile active pill -->
-              <rect x="290" y="768" width="78" height="54" rx="27" fill="#252525"/>
-              <!-- Person icon SVG paths for profile tab -->
-              <circle cx="329" cy="784" r="8" fill="#e07b2a"/>
-              <path d="M311 800 Q329 791 347 800" fill="#e07b2a" stroke="none"/>
-              <text x="329" y="814" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Profile</text>
+              <rect x="222" y="774" width="66" height="34" rx="17" fill="#2d1a06"/>
+              <circle cx="244" cy="787" r="5" fill="none" stroke="#e07b2a" stroke-width="1.8"/>
+              <path d="M237 799 Q244 793 251 799" fill="none" stroke="#e07b2a" stroke-width="1.8" stroke-linecap="round"/>
+              <text x="255" y="797" fill="#e07b2a" font-size="10" font-family="-apple-system,sans-serif"> </text>
+              <text x="255" y="812" text-anchor="middle" fill="#e07b2a" font-size="10" font-weight="600" font-family="-apple-system,sans-serif">Profile</text>
+              <!-- Home indicator -->
+              <rect x="145" y="834" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
             </svg>
           </div>
           <div class="dynamic-island"></div>
@@ -1882,7 +1783,6 @@
           <div class="phone-vol-dn"></div>
         </div>
       </div>
-
 
       <!-- ─ ─  Dot indicators ─ ─  -->
       <div class="carousel-dots">
@@ -2356,9 +2256,15 @@
           s.style.zIndex = slotOf[i] === 0 ? 5 : 3;
         });
 
-        // Screen crossfade
-        slides.forEach(s => s.classList.add('screen-fade'));
-        setTimeout(() => slides.forEach(s => s.classList.remove('screen-fade')), 400);
+        // Screen crossfade — only fade the outgoing & incoming center slides
+        const outgoing = slides.find((_, i) => {
+          // Before the slot rotation above, the current center had slotOf[i]=0
+          // After rotation it moved to slot 1 (next) or 2 (prev)
+          return direction > 0 ? slotOf[i] === 1 : slotOf[i] === 2;
+        });
+        const incoming = slides.find((_, i) => slotOf[i] === 0);
+        [outgoing, incoming].filter(Boolean).forEach(s => s.classList.add('screen-fade'));
+        setTimeout(() => [outgoing, incoming].filter(Boolean).forEach(s => s.classList.remove('screen-fade')), 420);
 
         dots.forEach((d, i) => d.classList.toggle('active', i === cur));
 
@@ -2443,7 +2349,7 @@
       function validate() {
         let ok = true;
         if (!fName.value.trim())                                            { showFieldError(fName,     errName);      ok = false; }
-        if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(fEmail.value.trim()))   { showFieldError(fEmail,    errEmail);     ok = false; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fEmail.value.trim()))   { showFieldError(fEmail,    errEmail);     ok = false; }
         if (!fPlatform.value)                                               { showFieldError(fPlatform, errPlatform);  ok = false; }
         if (!fTos.checked)                                                  { showFieldError(fTos,      errTos);       ok = false; }
         if (!fMarketing.checked)                                            { showFieldError(fMarketing,errMarketing); ok = false; }
