@@ -8,64 +8,181 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#0d0d0d;--surface:#161616;--text:#f2f2f2;--text-muted:#888888;--accent:#e07b2a;--font-serif:'DM Serif Display',Georgia,serif;--font-sans:'DM Sans',system-ui,sans-serif}
+    :root{--bg:#0d0d0d;--surface:#161616;--surface-2:#1e1e1e;--text:#f2f2f2;--text-muted:#888888;--text-faint:#444444;--accent:#e07b2a;--accent-dim:rgba(224,123,42,0.15);--border:rgba(255,255,255,0.07);--font-serif:'DM Serif Display',Georgia,serif;--font-sans:'DM Sans',system-ui,sans-serif}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.7}
-    nav.legal-nav{position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(12px);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.07);z-index:100}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+    nav.legal-nav{position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(20px);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);z-index:100}
     nav.legal-nav .logo{font-family:var(--font-serif);font-size:20px;color:var(--text);text-decoration:none}
-    nav.legal-nav .back{color:var(--accent);text-decoration:none;font-size:14px;font-weight:500}
-    .legal-container{max-width:760px;margin:60px auto;padding:0 24px 80px}
-    h1{font-family:var(--font-serif);font-size:clamp(32px,5vw,48px);margin-bottom:8px}
-    .last-updated{color:var(--text-muted);font-size:14px;margin-bottom:48px}
-    h2{font-family:var(--font-serif);font-size:22px;margin:40px 0 12px}
-    p{margin-bottom:16px;color:#ccc}
-    ul{margin:0 0 16px 24px;color:#ccc}
-    ul li{margin-bottom:8px}
-    a{color:var(--accent)}
-    strong{color:var(--text)}
-    .divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:40px 0}
+    nav.legal-nav .logo span{color:var(--accent)}
+    nav.legal-nav .back{color:var(--accent);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:opacity 0.2s}
+    nav.legal-nav .back:hover{opacity:0.8}
+    .legal-container{max-width:780px;margin:0 auto;padding:60px 24px 100px}
+    .legal-hero{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+    h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,54px);line-height:1.1;margin-bottom:12px;color:#fff}
+    .last-updated{color:var(--text-muted);font-size:14px;margin-bottom:20px}
+    .legal-intro{font-size:17px;color:var(--text-muted);line-height:1.8;font-weight:300}
+    h2{font-family:var(--font-serif);font-size:24px;margin:48px 0 14px;color:#fff;padding-top:8px}
+    h3{font-size:16px;font-weight:600;color:var(--text);margin:24px 0 10px}
+    p{margin-bottom:18px;color:#ccc;line-height:1.8}
+    ul,ol{margin:0 0 18px 28px;color:#ccc}
+    ul li,ol li{margin-bottom:10px;line-height:1.7}
+    a{color:var(--accent);text-decoration:none;transition:opacity 0.2s}
+    a:hover{opacity:0.8;text-decoration:underline}
+    strong{color:var(--text);font-weight:600}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:20px 24px;margin:24px 0}
+    .highlight-box p{margin:0;color:var(--text-muted);font-size:15px}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:48px}
+    .toc h3{margin:0 0 16px;font-family:var(--font-serif);font-size:18px;color:#fff}
+    .toc ol{margin:0 0 0 20px;color:var(--text-muted)}
+    .toc ol li{margin-bottom:6px}
+    .toc ol li a{color:var(--text-muted);font-size:14px}
+    .toc ol li a:hover{color:var(--accent)}
+    .footer-note{margin-top:60px;padding-top:32px;border-top:1px solid var(--border);text-align:center;color:var(--text-faint);font-size:13px}
+    .footer-note a{color:var(--text-faint)}
+    .footer-note a:hover{color:var(--accent)}
+    @media(max-width:600px){nav.legal-nav{padding:14px 20px}.legal-container{padding:40px 20px 80px}h2{font-size:21px}}
   </style>
 </head>
 <body>
   <nav class="legal-nav">
-    <a href="/" class="logo">Next10<span style="color:var(--accent)">.</span></a>
-    <a href="/" class="back">Back to Home</a>
+    <a href="/" class="logo">Next10<span>.</span></a>
+    <a href="/" class="back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
   </nav>
   <div class="legal-container">
-    <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: March 25, 2026</p>
-    <p>Please read these Terms of Service ("Terms") carefully before using the Next10 website at next10.live (the "Site"). By accessing or using our Site, you agree to be bound by these Terms. If you do not agree, please do not use our Site.</p>
-    <hr class="divider" />
-    <h2>1. Acceptance of Terms</h2>
-    <p>By accessing our Site, joining our waitlist, or otherwise interacting with our services, you confirm that you are at least 13 years of age and have the legal capacity to enter into these Terms.</p>
-    <h2>2. Description of Service</h2>
-    <p>Next10 is a pre-launch productivity and goal-setting mobile application. The Site currently operates as a waitlist registration page. Features, pricing, and availability are subject to change without notice.</p>
-    <h2>3. Waitlist Registration</h2>
-    <p>By joining the Next10 waitlist, you consent to receive email communications related to the launch and updates, confirm your email address is accurate and belongs to you, acknowledge that joining does not guarantee access, and may unsubscribe at any time.</p>
-    <h2>4. Intellectual Property</h2>
-    <p>All content on this Site, including text, graphics, logos, images, and software, is the exclusive property of Next10 and is protected by copyright, trademark, and intellectual property laws. You may not reproduce or exploit any content without prior written consent.</p>
-    <h2>5. User Conduct</h2>
-    <p>You agree not to use the Site for any unlawful purpose, attempt to gain unauthorised access to any part of the Site, transmit unsolicited advertising, introduce malicious code, use automated tools to scrape the Site, or impersonate any person or entity.</p>
-    <h2>6. Disclaimer of Warranties</h2>
-    <p>THE SITE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
-    <h2>7. Limitation of Liability</h2>
-    <p>TO THE FULLEST EXTENT PERMITTED BY LAW, NEXT10 SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SITE. OUR TOTAL LIABILITY SHALL NOT EXCEED THE GREATER OF THE AMOUNT YOU PAID US IN THE PAST TWELVE MONTHS OR $50 USD.</p>
-    <h2>8. Third-Party Links</h2>
-    <p>Our Site may contain links to third-party websites. These are provided for convenience only. We are not responsible for their content and accept no liability for loss or damage arising from use of them.</p>
-    <h2>9. Privacy</h2>
-    <p>Your use of the Site is governed by our <a href="/privacy-policy.html">Privacy Policy</a>, incorporated into these Terms by reference.</p>
-    <h2>10. Modifications</h2>
-    <p>We reserve the right to modify the Site and these Terms at any time. Changes are effective upon posting. Continued use of the Site constitutes acceptance of the revised Terms.</p>
-    <h2>11. Termination</h2>
-    <p>We reserve the right to terminate or restrict your access to the Site at our discretion, without notice, for conduct that violates these Terms or is harmful to others.</p>
-    <h2>12. Governing Law</h2>
-    <p>These Terms shall be governed by applicable law. If you are a consumer in the EU, you may also use the EU Online Dispute Resolution platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
-    <h2>13. Entire Agreement</h2>
-    <p>These Terms, together with our Privacy Policy and Cookie Policy, constitute the entire agreement between you and Next10 regarding use of the Site.</p>
-    <h2>14. Contact Us</h2>
-    <p>Email: <a href="mailto:legal@next10.live">legal@next10.live</a> | Website: <a href="https://next10.live">next10.live</a></p>
-    <hr class="divider" />
-    <p style="color:var(--text-muted);font-size:13px">© 2026 Next10. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a> | <a href="/cookie-policy.html">Cookie Policy</a></p>
+    <div class="legal-hero">
+      <h1>Terms of Service</h1>
+      <p class="last-updated">Last updated: March 25, 2026</p>
+      <p class="legal-intro">Please read these Terms of Service ("Terms") carefully before using the Next10 website at next10.live (the "Site"). By accessing or using our Site, you agree to be bound by these Terms. If you do not agree, please do not use our Site.</p>
+    </div>
+
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#s1">Acceptance of Terms</a></li>
+        <li><a href="#s2">Description of Service</a></li>
+        <li><a href="#s3">Eligibility</a></li>
+        <li><a href="#s4">Waitlist Registration</a></li>
+        <li><a href="#s5">Intellectual Property</a></li>
+        <li><a href="#s6">User Conduct and Acceptable Use</a></li>
+        <li><a href="#s7">Beta and Pre-Launch Nature of Service</a></li>
+        <li><a href="#s8">Disclaimer of Warranties</a></li>
+        <li><a href="#s9">Limitation of Liability</a></li>
+        <li><a href="#s10">Indemnification</a></li>
+        <li><a href="#s11">Third-Party Links and Services</a></li>
+        <li><a href="#s12">Privacy</a></li>
+        <li><a href="#s13">Modifications to the Site and Terms</a></li>
+        <li><a href="#s14">Termination</a></li>
+        <li><a href="#s15">Dispute Resolution</a></li>
+        <li><a href="#s16">Governing Law</a></li>
+        <li><a href="#s17">Entire Agreement</a></li>
+        <li><a href="#s18">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <h2 id="s1">1. Acceptance of Terms</h2>
+    <p>By accessing our Site, joining our waitlist, or otherwise interacting with any part of our services, you confirm that you have read, understood, and agree to be bound by these Terms, together with our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/cookie-policy.html">Cookie Policy</a>, which are incorporated herein by reference.</p>
+    <p>If you are using the Site on behalf of a company, organisation, or other entity, you represent and warrant that you are authorised to bind that entity to these Terms.</p>
+
+    <h2 id="s2">2. Description of Service</h2>
+    <p>Next10 is a pre-launch mobile productivity application designed to help users set meaningful long-term goals and build daily habits that align with those goals. The Site currently operates as an informational landing page and waitlist registration system for the forthcoming mobile app.</p>
+    <p>Next10 is currently in active development. We do not make representations about the final features, pricing, availability, or launch date of the application. All such details are subject to change without notice.</p>
+
+    <h2 id="s3">3. Eligibility</h2>
+    <p>You must be at least 13 years of age to use our Site. If you are between 13 and 16 years of age and located in the European Economic Area, you must have obtained valid parental or guardian consent prior to using the Site or submitting any personal information.</p>
+    <p>By using the Site, you represent and warrant that you meet all eligibility requirements and have the legal capacity to enter into a binding agreement.</p>
+
+    <h2 id="s4">4. Waitlist Registration</h2>
+    <p>By joining the Next10 waitlist, you:</p>
+    <ul>
+      <li>Consent to receive email communications related to the Next10 app launch, development updates, and related announcements.</li>
+      <li>Confirm that the email address and other information you provide are accurate and belong to you.</li>
+      <li>Acknowledge that joining the waitlist does not guarantee access to the application, early access, or any particular position.</li>
+      <li>Understand that you may unsubscribe from communications at any time by clicking the unsubscribe link in any email or by contacting <a href="mailto:privacy@next10.live">privacy@next10.live</a>.</li>
+    </ul>
+    <p>We reserve the right to remove you from the waitlist if your registration is found to be fraudulent, duplicated, or in violation of these Terms.</p>
+
+    <h2 id="s5">5. Intellectual Property</h2>
+    <p>All content on this Site, including but not limited to text, graphics, logos, icons, images, app screenshots, interface designs, and software, is the exclusive property of Next10 or its licensors and is protected by applicable copyright, trademark, trade dress, and other intellectual property laws.</p>
+    <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any materials from our Site without our prior written consent, except that you may:</p>
+    <ul>
+      <li>Print or download a single copy of pages solely for personal, non-commercial reference use.</li>
+      <li>Share links to our Site on social media or with friends.</li>
+    </ul>
+    <p>All rights not expressly granted are reserved.</p>
+
+    <h2 id="s6">6. User Conduct and Acceptable Use</h2>
+    <p>You agree to use the Site only for lawful purposes and in a manner consistent with all applicable laws and regulations. You agree not to:</p>
+    <ul>
+      <li>Use the Site for any unlawful purpose or in violation of these Terms.</li>
+      <li>Attempt to gain unauthorised access to any part of the Site, its systems, or any connected services.</li>
+      <li>Transmit unsolicited advertising, promotional materials, or spam.</li>
+      <li>Introduce any viruses, Trojan horses, worms, logic bombs, or other malicious code.</li>
+      <li>Use automated tools, bots, scrapers, or crawlers to access or harvest data from the Site without our express written permission.</li>
+      <li>Impersonate any person or entity, or falsely represent your affiliation with any person or entity.</li>
+      <li>Interfere with or disrupt the integrity or performance of the Site or its servers.</li>
+      <li>Collect or compile personal information about other users without their consent.</li>
+    </ul>
+
+    <h2 id="s7">7. Beta and Pre-Launch Nature of Service</h2>
+    <p>The Site and any related services are provided in a pre-launch, informational capacity. The Next10 mobile application has not yet been released. Features described on the Site represent our current development roadmap and may change materially before, during, or after launch.</p>
+    <div class="highlight-box"><p>Early access, beta access, or waitlist priority is not guaranteed by joining the waitlist. We will communicate our access rollout strategy to waitlist members via email ahead of launch.</p></div>
+
+    <h2 id="s8">8. Disclaimer of Warranties</h2>
+    <p>THE SITE AND ITS CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+    <ul>
+      <li>WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE</li>
+      <li>NON-INFRINGEMENT</li>
+      <li>ACCURACY, COMPLETENESS, OR RELIABILITY OF ANY CONTENT</li>
+      <li>THAT THE SITE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS</li>
+    </ul>
+    <p>Some jurisdictions do not allow the exclusion of implied warranties, so some of the above exclusions may not apply to you.</p>
+
+    <h2 id="s9">9. Limitation of Liability</h2>
+    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, NEXT10 AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH YOUR ACCESS TO OR USE OF (OR INABILITY TO ACCESS OR USE) THE SITE.</p>
+    <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATED TO THESE TERMS SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID US IN THE TWELVE MONTHS PRIOR TO THE CLAIM, OR (B) USD $50.00.</p>
+
+    <h2 id="s10">10. Indemnification</h2>
+    <p>You agree to defend, indemnify, and hold harmless Next10 and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with your violation of these Terms, your use of the Site, or your violation of any applicable law or the rights of any third party.</p>
+
+    <h2 id="s11">11. Third-Party Links and Services</h2>
+    <p>Our Site may contain links to third-party websites, services, or social media platforms (including Instagram and X/Twitter). These links are provided for convenience only. We do not control, endorse, or accept responsibility for the content, privacy practices, or terms of any third-party sites. We encourage you to review the terms and privacy policies of any third-party services you access.</p>
+
+    <h2 id="s12">12. Privacy</h2>
+    <p>Your use of the Site is governed by our <a href="/privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. By using the Site, you consent to the data practices described in that policy.</p>
+
+    <h2 id="s13">13. Modifications to the Site and Terms</h2>
+    <p>We reserve the right to modify, suspend, or discontinue the Site (or any portion thereof) at any time with or without notice. We also reserve the right to modify these Terms at any time. Changes are effective upon posting to the Site. Your continued use of the Site after changes are posted constitutes acceptance of the revised Terms.</p>
+    <p>We encourage you to review these Terms periodically. If we make material changes, we may provide additional notice such as an email to registered waitlist members.</p>
+
+    <h2 id="s14">14. Termination</h2>
+    <p>We reserve the right to terminate or suspend your access to the Site, or remove you from the waitlist, at our sole discretion, without notice or liability, for conduct that we determine violates these Terms, is harmful to other users, third parties, or our business interests, or for any other reason.</p>
+    <p>All provisions of these Terms which by their nature should survive termination shall survive, including intellectual property, disclaimer of warranties, limitation of liability, and governing law.</p>
+
+    <h2 id="s15">15. Dispute Resolution</h2>
+    <p>We encourage you to contact us first at <a href="mailto:legal@next10.live">legal@next10.live</a> if you have a concern. We aim to resolve disputes informally and amicably.</p>
+    <p>If you are a consumer located in the European Union, you may also use the EU Online Dispute Resolution (ODR) Platform at <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+
+    <h2 id="s16">16. Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with applicable law. If you are a consumer in the EU, you benefit from any mandatory provisions of the law of your country of residence. Nothing in these Terms affects your rights as a consumer under applicable mandatory consumer protection legislation.</p>
+
+    <h2 id="s17">17. Entire Agreement</h2>
+    <p>These Terms, together with our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/cookie-policy.html">Cookie Policy</a>, constitute the entire agreement between you and Next10 with respect to your use of the Site and supersede all prior and contemporaneous understandings, agreements, representations, and warranties.</p>
+    <p>If any provision of these Terms is found to be invalid or unenforceable, that provision will be modified to the minimum extent necessary to make it valid and enforceable, and the remaining provisions will continue in full force and effect.</p>
+
+    <h2 id="s18">18. Contact Us</h2>
+    <p>If you have any questions about these Terms, please contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:legal@next10.live">legal@next10.live</a></li>
+      <li>Website: <a href="https://next10.live">next10.live</a></li>
+    </ul>
+
+    <div class="footer-note">
+      <p>&copy; 2026 Next10. All rights reserved. &nbsp;|&nbsp; <a href="/privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="/cookie-policy.html">Cookie Policy</a></p>
+    </div>
   </div>
 </body>
 </html>
