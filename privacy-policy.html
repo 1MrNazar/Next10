@@ -8,62 +8,193 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#0d0d0d;--surface:#161616;--text:#f2f2f2;--text-muted:#888888;--accent:#e07b2a;--font-serif:'DM Serif Display',Georgia,serif;--font-sans:'DM Sans',system-ui,sans-serif; }
+    :root { --bg:#0d0d0d;--surface:#161616;--surface-2:#1e1e1e;--text:#f2f2f2;--text-muted:#888888;--text-faint:#444444;--accent:#e07b2a;--accent-dim:rgba(224,123,42,0.15);--border:rgba(255,255,255,0.07);--font-serif:'DM Serif Display',Georgia,serif;--font-sans:'DM Sans',system-ui,sans-serif; }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.7}
-    nav.legal-nav{position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(12px);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.07);z-index:100}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+    nav.legal-nav{position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(20px);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);z-index:100}
     nav.legal-nav .logo{font-family:var(--font-serif);font-size:20px;color:var(--text);text-decoration:none}
-    nav.legal-nav .back{color:var(--accent);text-decoration:none;font-size:14px;font-weight:500}
-    .legal-container{max-width:760px;margin:60px auto;padding:0 24px 80px}
-    h1{font-family:var(--font-serif);font-size:clamp(32px,5vw,48px);margin-bottom:8px}
-    .last-updated{color:var(--text-muted);font-size:14px;margin-bottom:48px}
-    h2{font-family:var(--font-serif);font-size:22px;margin:40px 0 12px}
-    p{margin-bottom:16px;color:#ccc}
-    ul{margin:0 0 16px 24px;color:#ccc}
-    ul li{margin-bottom:8px}
-    a{color:var(--accent)}
-    strong{color:var(--text)}
-    .divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:40px 0}
+    nav.legal-nav .logo span{color:var(--accent)}
+    nav.legal-nav .back{color:var(--accent);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;transition:opacity 0.2s}
+    nav.legal-nav .back:hover{opacity:0.8}
+    .legal-container{max-width:780px;margin:0 auto;padding:60px 24px 100px}
+    .legal-hero{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+    h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,54px);line-height:1.1;margin-bottom:12px;color:#fff}
+    .last-updated{color:var(--text-muted);font-size:14px;margin-bottom:20px}
+    .legal-intro{font-size:17px;color:var(--text-muted);line-height:1.8;font-weight:300}
+    h2{font-family:var(--font-serif);font-size:24px;margin:48px 0 14px;color:#fff;padding-top:8px}
+    h3{font-size:16px;font-weight:600;color:var(--text);margin:24px 0 10px}
+    p{margin-bottom:18px;color:#ccc;line-height:1.8}
+    ul,ol{margin:0 0 18px 28px;color:#ccc}
+    ul li,ol li{margin-bottom:10px;line-height:1.7}
+    a{color:var(--accent);text-decoration:none;transition:opacity 0.2s}
+    a:hover{opacity:0.8;text-decoration:underline}
+    strong{color:var(--text);font-weight:600}
+    .divider{border:none;border-top:1px solid var(--border);margin:48px 0}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:20px 24px;margin:24px 0}
+    .highlight-box p{margin:0;color:var(--text-muted);font-size:15px}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:48px}
+    .toc h3{margin:0 0 16px;font-family:var(--font-serif);font-size:18px;color:#fff}
+    .toc ol{margin:0 0 0 20px;color:var(--text-muted)}
+    .toc ol li{margin-bottom:6px}
+    .toc ol li a{color:var(--text-muted);font-size:14px}
+    .toc ol li a:hover{color:var(--accent)}
+    .footer-note{margin-top:60px;padding-top:32px;border-top:1px solid var(--border);text-align:center;color:var(--text-faint);font-size:13px}
+    .footer-note a{color:var(--text-faint)}
+    .footer-note a:hover{color:var(--accent)}
+    @media(max-width:600px){nav.legal-nav{padding:14px 20px}.legal-container{padding:40px 20px 80px}h2{font-size:21px}}
   </style>
 </head>
 <body>
   <nav class="legal-nav">
-    <a href="/" class="logo">Next10<span style="color:var(--accent)">.</span></a>
-    <a href="/" class="back">Back to Home</a>
+    <a href="/" class="logo">Next10<span>.</span></a>
+    <a href="/" class="back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
   </nav>
   <div class="legal-container">
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: March 25, 2026</p>
-    <p>Welcome to Next10 ("we", "our", or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at next10.live (the "Site") and join our waitlist. Please read this policy carefully. If you disagree with its terms, please discontinue use of our Site.</p>
-    <hr class="divider" />
-    <h2>1. Information We Collect</h2>
-    <p>We collect information you voluntarily provide to us when you join our waitlist (email address) or contact us. When you visit our Site, we may also automatically collect technical information including browser type, operating system, referring URLs, device type, pages visited, and anonymised IP address.</p>
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the information we collect to send you updates about the Next10 app launch and waitlist status, communicate important announcements, analyse and improve our website, comply with legal obligations, and prevent fraud. We will never sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
-    <h2>3. Legal Basis for Processing (GDPR)</h2>
-    <p>If you are in the EEA, UK, or Switzerland, we process your personal data under the following legal bases: Consent (you joined our waitlist), Legitimate Interests (operating and improving our services), and Legal Obligation (compliance with applicable laws).</p>
-    <h2>4. How We Store Your Information</h2>
-    <p>Your data is stored securely via Google Sheets (Google Apps Script), subject to Google's Privacy Policy. We implement appropriate technical and organisational measures to protect your data against unauthorised access or disclosure. We retain your data until you request deletion or as required by law.</p>
-    <h2>5. Sharing Your Information</h2>
-    <p>We may share your information with: Google (Google Sheets / Apps Script) for waitlist data storage, GitHub Pages for website hosting, and analytics providers. All third parties are contractually obligated to keep your information confidential. We may also disclose information where required by law.</p>
-    <h2>6. Cookies and Tracking Technologies</h2>
-    <p>Our Site may use cookies. For full details, see our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
-    <h2>7. Your Rights</h2>
-    <p>Depending on your location, you may have rights including: Right to Access, Right to Rectification, Right to Erasure, Right to Restrict Processing, Right to Data Portability, Right to Object, and Right to Withdraw Consent. To exercise these rights, contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a>.</p>
-    <h2>8. California Privacy Rights (CCPA)</h2>
-    <p>California residents have additional rights under CCPA, including the right to know what data we collect, the right to delete it, and the right to opt out of sale. We do not sell personal information. Contact <a href="mailto:privacy@next10.live">privacy@next10.live</a> to submit a CCPA request.</p>
-    <h2>9. Children's Privacy</h2>
-    <p>Our Site is not directed to individuals under 13. We do not knowingly collect data from children under 13. Contact us immediately if you believe we have inadvertently collected such data.</p>
-    <h2>10. Links to Third-Party Sites</h2>
-    <p>Our Site may contain links to third-party websites (e.g. Instagram, X/Twitter). This Privacy Policy does not apply to those sites.</p>
-    <h2>11. International Data Transfers</h2>
-    <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place, such as Standard Contractual Clauses, to protect your data.</p>
-    <h2>12. Changes to This Privacy Policy</h2>
-    <p>We may update this policy from time to time. When we do, we will revise the "last updated" date. Continued use of our Site following changes constitutes acceptance of the updated policy.</p>
-    <h2>13. Contact Us</h2>
-    <p>Email: <a href="mailto:privacy@next10.live">privacy@next10.live</a> | Website: <a href="https://next10.live">next10.live</a></p>
-    <hr class="divider" />
-    <p style="color:var(--text-muted);font-size:13px">© 2026 Next10. All rights reserved. | <a href="/terms-of-service.html">Terms of Service</a> | <a href="/cookie-policy.html">Cookie Policy</a></p>
+    <div class="legal-hero">
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: March 25, 2026</p>
+      <p class="legal-intro">Welcome to Next10. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at next10.live (the "Site") and join our waitlist. Please read this policy carefully.</p>
+    </div>
+
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#s1">Information We Collect</a></li>
+        <li><a href="#s2">How We Use Your Information</a></li>
+        <li><a href="#s3">Legal Basis for Processing (GDPR)</a></li>
+        <li><a href="#s4">How We Store Your Information</a></li>
+        <li><a href="#s5">Sharing Your Information</a></li>
+        <li><a href="#s6">Cookies and Tracking Technologies</a></li>
+        <li><a href="#s7">Your Rights</a></li>
+        <li><a href="#s8">California Privacy Rights (CCPA)</a></li>
+        <li><a href="#s9">Automated Decision-Making</a></li>
+        <li><a href="#s10">Children's Privacy</a></li>
+        <li><a href="#s11">Links to Third-Party Sites</a></li>
+        <li><a href="#s12">International Data Transfers</a></li>
+        <li><a href="#s13">Data Retention</a></li>
+        <li><a href="#s14">Security of Your Information</a></li>
+        <li><a href="#s15">Changes to This Privacy Policy</a></li>
+        <li><a href="#s16">Contact Us</a></li>
+      </ol>
+    </div>
+
+    <h2 id="s1">1. Information We Collect</h2>
+    <h3>Information You Provide to Us</h3>
+    <p>We collect information you voluntarily provide to us when you join our waitlist, including:</p>
+    <ul>
+      <li><strong>Name</strong> - your first and last name</li>
+      <li><strong>Email address</strong> - to communicate waitlist updates</li>
+      <li><strong>Device platform</strong> - iPhone, Android, or both (to tailor launch communications)</li>
+      <li><strong>Referral source</strong> - how you found out about Next10 (optional)</li>
+      <li><strong>Feature suggestions</strong> - any optional feedback you provide</li>
+    </ul>
+    <h3>Information Automatically Collected</h3>
+    <p>When you visit our Site, we may automatically collect technical information, including browser type and version, operating system, referring URLs, device type and screen resolution, pages visited and time spent, approximate geographic location (country/region level), and anonymised IP address.</p>
+    <div class="highlight-box"><p>We do not collect your precise location, financial data, government identification numbers, or any special category personal data as defined under GDPR Article 9.</p></div>
+
+    <h2 id="s2">2. How We Use Your Information</h2>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul>
+      <li>Send you updates about the Next10 app launch, waitlist status, and early access availability</li>
+      <li>Communicate important service announcements and development milestones</li>
+      <li>Analyse and improve the performance and content of our website</li>
+      <li>Understand how visitors discover and interact with Next10</li>
+      <li>Comply with applicable legal obligations</li>
+      <li>Detect, prevent, and address fraud or misuse</li>
+    </ul>
+    <p><strong>We will never sell, rent, or trade your personal information to third parties for their own marketing purposes.</strong></p>
+
+    <h2 id="s3">3. Legal Basis for Processing (GDPR)</h2>
+    <p>If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, we rely on the following lawful bases to process your personal data:</p>
+    <ul>
+      <li><strong>Consent (Article 6(1)(a))</strong> - You joined our waitlist and agreed to receive communications.</li>
+      <li><strong>Legitimate Interests (Article 6(1)(f))</strong> - Operating, maintaining, and improving our website and services, where such interests are not overridden by your rights.</li>
+      <li><strong>Legal Obligation (Article 6(1)(c))</strong> - Compliance with applicable laws and regulations.</li>
+    </ul>
+    <p>You may withdraw consent at any time by contacting us at <a href="mailto:privacy@next10.live">privacy@next10.live</a> or using the unsubscribe link in any email we send you.</p>
+
+    <h2 id="s4">4. How We Store Your Information</h2>
+    <p>Your waitlist data is stored securely via Google Sheets (processed through Google Apps Script), subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. Our website is hosted on GitHub Pages, subject to <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</p>
+    <p>We implement appropriate technical and organisational security measures to protect your data against accidental loss, unauthorised access, alteration, or disclosure. Access to your personal data is restricted to those with a legitimate need to process it.</p>
+
+    <h2 id="s5">5. Sharing Your Information</h2>
+    <p>We do not sell your personal data. We may share your information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service Providers</strong> - Google (Google Sheets / Apps Script) for waitlist storage; GitHub for website hosting. All are bound by data protection agreements.</li>
+      <li><strong>Analytics Providers</strong> - Anonymised, aggregated usage data may be shared with analytics services.</li>
+      <li><strong>Legal Requirements</strong> - We may disclose information where required by law, court order, or governmental authority.</li>
+      <li><strong>Business Transfers</strong> - In the event of a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction, with appropriate notice to you.</li>
+    </ul>
+
+    <h2 id="s6">6. Cookies and Tracking Technologies</h2>
+    <p>Our Site may use cookies and similar technologies. For full details on what cookies we use, why we use them, and how to manage them, please see our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+
+    <h2 id="s7">7. Your Rights</h2>
+    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+    <ul>
+      <li><strong>Right to Access</strong> - Request a copy of the personal data we hold about you.</li>
+      <li><strong>Right to Rectification</strong> - Request correction of inaccurate or incomplete data.</li>
+      <li><strong>Right to Erasure</strong> - Request deletion of your personal data where we have no compelling reason to continue processing it.</li>
+      <li><strong>Right to Restrict Processing</strong> - Request that we temporarily stop processing your data in certain circumstances.</li>
+      <li><strong>Right to Data Portability</strong> - Receive your data in a structured, commonly used, machine-readable format.</li>
+      <li><strong>Right to Object</strong> - Object to processing based on legitimate interests or for direct marketing.</li>
+      <li><strong>Right to Withdraw Consent</strong> - Where processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing.</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a>. We will respond within 30 days. We may need to verify your identity before processing your request.</p>
+    <p>If you are in the EEA or UK, you also have the right to lodge a complaint with your local supervisory authority. In the UK, this is the <a href="https://ico.org.uk" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a>.</p>
+
+    <h2 id="s8">8. California Privacy Rights (CCPA / CPRA)</h2>
+    <p>If you are a California resident, the CCPA as amended by the CPRA grants you additional rights:</p>
+    <ul>
+      <li><strong>Right to Know</strong> - What personal information we collect, use, disclose, or sell.</li>
+      <li><strong>Right to Delete</strong> - Request deletion of personal information we have collected.</li>
+      <li><strong>Right to Correct</strong> - Request correction of inaccurate personal information.</li>
+      <li><strong>Right to Opt-Out</strong> - We do not sell or share personal information for cross-context behavioural advertising.</li>
+      <li><strong>Right to Non-Discrimination</strong> - We will not discriminate against you for exercising your CCPA rights.</li>
+    </ul>
+    <p>To submit a CCPA request, contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a> with the subject line "CCPA Request".</p>
+
+    <h2 id="s9">9. Automated Decision-Making</h2>
+    <p>We do not use automated decision-making or profiling that produces legal or similarly significant effects on you. Your waitlist position is determined on a first-come, first-served basis based on submission timestamp, without any algorithmic scoring.</p>
+
+    <h2 id="s10">10. Children's Privacy</h2>
+    <p>Our Site is not directed to individuals under the age of 13. We do not knowingly collect personal data from children under 13. If you believe we have inadvertently collected such data, please contact us immediately at <a href="mailto:privacy@next10.live">privacy@next10.live</a> and we will take prompt steps to delete it.</p>
+
+    <h2 id="s11">11. Links to Third-Party Sites</h2>
+    <p>Our Site may contain links to third-party websites such as Instagram, X (Twitter), and others. These links are provided for convenience only. This Privacy Policy does not apply to those sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+
+    <h2 id="s12">12. International Data Transfers</h2>
+    <p>Your personal information may be transferred to, stored in, and processed in countries other than your own, including the United States, where Google's infrastructure is located. When we transfer data outside the EEA or UK, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses (SCCs), to maintain the same level of protection required under GDPR.</p>
+
+    <h2 id="s13">13. Data Retention</h2>
+    <p>We retain your personal data for as long as necessary to fulfil the purposes described in this Privacy Policy, or as required by law:</p>
+    <ul>
+      <li><strong>Waitlist data</strong> - Retained until the app launches and waitlist members are onboarded, or until you request deletion.</li>
+      <li><strong>Analytics data</strong> - Retained in anonymised/aggregated form indefinitely; individual session data for up to 26 months.</li>
+      <li><strong>Legal and compliance records</strong> - Retained as required by applicable law (typically 6-7 years).</li>
+    </ul>
+
+    <h2 id="s14">14. Security of Your Information</h2>
+    <p>We use reasonable administrative, technical, and physical security measures designed to protect your personal information from unauthorised access, use, or disclosure. These include access controls, data encryption in transit (HTTPS/TLS), and regular security assessments. However, no method of internet transmission is 100% secure.</p>
+
+    <h2 id="s15">15. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make changes, we will revise the "Last updated" date at the top of this page. If we make material changes, we will notify you by email (where we have your contact details) or by prominently posting a notice on our Site.</p>
+
+    <h2 id="s16">16. Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:privacy@next10.live">privacy@next10.live</a></li>
+      <li>Website: <a href="https://next10.live">next10.live</a></li>
+    </ul>
+    <p>We aim to respond to all enquiries within 5 business days.</p>
+
+    <div class="footer-note">
+      <p>&copy; 2026 Next10. All rights reserved. &nbsp;|&nbsp; <a href="/terms-of-service.html">Terms of Service</a> &nbsp;|&nbsp; <a href="/cookie-policy.html">Cookie Policy</a></p>
+    </div>
   </div>
 </body>
 </html>
