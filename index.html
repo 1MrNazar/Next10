@@ -40,11 +40,11 @@
 
     html { scroll-behavior: smooth; }
 
+    html { overflow-x: hidden; }
     body {
       font-family: var(--font-sans);
       background: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -101,14 +101,14 @@
     /* =============================================
        NAV
     ============================================= */
-    nav {
+    nav#nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
       padding: 20px 0;
       transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
     }
-    nav.scrolled {
+    nav#nav.scrolled {
       background: rgba(13,13,13,0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -282,7 +282,7 @@
       z-index: 20;
     }
 
-    /* ─ ─  carousel track ─ ─  */
+    /* â â  carousel track â â  */
     .carousel {
       position: relative;
       width: 100%;
@@ -315,7 +315,7 @@
     .carousel-slide.transitioning-in .phone-screen svg { opacity: 0; }
     .carousel-slide.transitioning-in.fade-done .phone-screen svg { opacity: 1; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s; }
 
-    /* ─ ─  dot indicators ─ ─  */
+    /* â â  dot indicators â â  */
     .carousel-dots {
       position: absolute;
       bottom: -56px;
@@ -336,7 +336,7 @@
     }
     .carousel-dot.active { width: 24px; background: var(--accent); }
 
-    /* ─ ─  nav arrows ─ ─  */
+    /* â â  nav arrows â â  */
     .carousel-arrow {
       position: absolute;
       top: 50%;
@@ -359,9 +359,9 @@
     .carousel-arrow.left  { left: 4px; }
     .carousel-arrow.right { right: 4px; }
 
-    /* ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+    /* â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
        PHONE SHELL - premium iPhone look
-    ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  */
+    â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â  */
     .phone-shell {
       width: 274px;
       height: 560px;
@@ -425,7 +425,7 @@
         0 90px 50px  rgba(224,123,42,0.14);
     }
 
-    /* ─ ─  full-bleed screen ─ ─  */
+    /* â â  full-bleed screen â â  */
     .phone-screen {
       position: absolute;
       inset: 0;
@@ -440,7 +440,7 @@
       display: block;
     }
 
-    /* ─ ─  Dynamic Island - smaller, realistic ─ ─  */
+    /* â â  Dynamic Island - smaller, realistic â â  */
     .dynamic-island {
       position: absolute;
       top: 12px;
@@ -470,7 +470,7 @@
         0 0 3px rgba(60,120,255,0.2);
     }
 
-    /* ─ ─  home indicator ─ ─  */
+    /* â â  home indicator â â  */
     .phone-home-bar {
       position: absolute;
       bottom: 9px;
@@ -483,7 +483,7 @@
       z-index: 15;
     }
 
-    /* ─ ─  physical side buttons ─ ─  */
+    /* â â  physical side buttons â â  */
     .phone-side-btn {
       position: absolute;
       right: -3.5px;
@@ -507,7 +507,7 @@
     .phone-vol-up { top: 118px; height: 48px; }
     .phone-vol-dn { top: 178px; height: 48px; }
 
-    /* ─ ─  responsive ─ ─  */
+    /* â â  responsive â â  */
     @media (max-width: 720px) {
       .carousel { height: 540px; }
       .carousel-slide.pos-left,
@@ -517,7 +517,15 @@
     @media (max-width: 480px) {
       .carousel { height: 520px; }
       .phone-shell { width: 230px; height: 470px; }
-      .carousel-arrow { display: none; }
+      /* Mobile scroll buttons - visible on mobile */
+      .carousel-arrow {
+        display: flex;
+        width: 40px; height: 40px;
+        background: rgba(22,22,22,0.9);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+      .carousel-arrow.left  { left: 8px; }
+      .carousel-arrow.right { right: 8px; }
     }
     @media (max-width: 360px) {
       .carousel { height: 480px; }
@@ -811,7 +819,7 @@
       font-weight: 300;
     }
 
-    /* ─ ─  form fields ─ ─  */
+    /* â â  form fields â â  */
     .wl-form {
       display: flex;
       flex-direction: column;
@@ -898,7 +906,7 @@
     }
     .wl-select option { background: var(--surface-2); }
 
-    /* ─ ─  consent checkboxes ─ ─  */
+    /* â â  consent checkboxes â â  */
     .wl-consents {
       display: flex;
       flex-direction: column;
@@ -961,7 +969,7 @@
       margin: -8px -10px;
     }
 
-    /* ─ ─  submit button ─ ─  */
+    /* â â  submit button â â  */
     .wl-submit {
       display: flex;
       align-items: center;
@@ -1010,7 +1018,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ─ ─  field error messages ─ ─  */
+    /* â â  field error messages â â  */
     .wl-error-msg {
       font-size: 12px;
       color: #e07070;
@@ -1019,7 +1027,7 @@
     }
     .wl-error-msg.visible { display: block; }
 
-    /* ─ ─  success / error banners ─ ─  */
+    /* â â  success / error banners â â  */
     .wl-banner {
       display: none;
       border-radius: var(--radius-md);
@@ -1044,7 +1052,7 @@
     #wlFormState { display: block; }
     #wlFormState.hidden { display: none; }
 
-    /* ─ ─  full success replacement card ─ ─  */
+    /* â â  full success replacement card â â  */
     #wlSuccess {
       display: none;
       flex-direction: column;
@@ -1354,9 +1362,9 @@
   <div id="phones">
     <div class="carousel" id="carousel">
 
-      <!-- ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-           SLIDE 0 · Home / Spider Chart  (center)
-      ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
+      <!-- â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
+           SLIDE 0 Â· Home / Spider Chart  (center)
+      â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â  -->
 
             <!-- SLIDE 0: Home / Radar - center -->
       <div class="carousel-slide pos-center" data-index="0">
@@ -1552,7 +1560,7 @@
               <text x="314" y="114" fill="#e07b2a" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">&#x276E;</text>
               <text x="340" y="114" fill="#e07b2a" font-size="17" font-weight="700" font-family="-apple-system,sans-serif">&#x276F;</text>
 
-              <!-- ══ SECTION: Lose weight (expanded) ══ -->
+              <!-- ââ SECTION: Lose weight (expanded) ââ -->
               <rect x="16" y="126" width="358" height="168" rx="14" fill="url(#card1)"/>
               <text x="30" y="150" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Lose weight</text>
               <!-- up chevron -->
@@ -1566,7 +1574,7 @@
               <text x="226" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">F</text>
               <text x="256" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
               <text x="286" y="172" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
-              <!-- Gym row: M✓  S✓ -->
+              <!-- Gym row: Mâ  Sâ -->
               <text x="30" y="198" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Gym</text>
               <rect x="93" y="181" width="26" height="26" rx="7" fill="#e07b2a"/>
               <path d="M97 194 L101 198 L109 190" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1577,7 +1585,7 @@
               <rect x="243" y="181" width="26" height="26" rx="7" fill="#2a2a2a"/>
               <rect x="273" y="181" width="26" height="26" rx="7" fill="#e07b2a"/>
               <path d="M277 194 L281 198 L289 190" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Run row: F✓  S✓ -->
+              <!-- Run row: Fâ  Sâ -->
               <text x="30" y="228" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Run</text>
               <rect x="93" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
               <rect x="123" y="211" width="26" height="26" rx="7" fill="#2a2a2a"/>
@@ -1591,12 +1599,12 @@
               <!-- Edit Habits link -->
               <text x="195" y="278" text-anchor="middle" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">Edit Habits &#x270E;</text>
 
-              <!-- ══ SECTION: Learn a new language (collapsed) ══ -->
+              <!-- ââ SECTION: Learn a new language (collapsed) ââ -->
               <rect x="16" y="304" width="358" height="46" rx="14" fill="url(#card1)"/>
               <text x="30" y="331" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Learn a new language</text>
               <path d="M360 327 L367 334 L374 327" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- ══ SECTION: Run 15k (expanded) ══ -->
+              <!-- ââ SECTION: Run 15k (expanded) ââ -->
               <rect x="16" y="360" width="358" height="136" rx="14" fill="url(#card1)"/>
               <text x="30" y="384" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Run 15k</text>
               <path d="M360 387 L367 380 L374 387" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
@@ -1609,7 +1617,7 @@
               <text x="226" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">F</text>
               <text x="256" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
               <text x="286" y="404" text-anchor="middle" fill="#555" font-size="11" font-family="-apple-system,sans-serif">S</text>
-              <!-- Run row: F✓  S✓ -->
+              <!-- Run row: Fâ  Sâ -->
               <text x="30" y="430" fill="#ccc" font-size="13" font-family="-apple-system,sans-serif">Run</text>
               <rect x="93" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
               <rect x="123" y="413" width="26" height="26" rx="7" fill="#2a2a2a"/>
@@ -1623,12 +1631,12 @@
               <!-- Edit Habits link -->
               <text x="195" y="476" text-anchor="middle" fill="#e07b2a" font-size="13" font-family="-apple-system,sans-serif">Edit Habits &#x270E;</text>
 
-              <!-- ══ SECTION: Save money (collapsed) ══ -->
+              <!-- ââ SECTION: Save money (collapsed) ââ -->
               <rect x="16" y="506" width="358" height="46" rx="14" fill="url(#card1)"/>
               <text x="30" y="533" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Save money</text>
               <path d="M360 529 L367 536 L374 529" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- ══ SECTION: Sleep routine (collapsed) ══ -->
+              <!-- ââ SECTION: Sleep routine (collapsed) ââ -->
               <rect x="16" y="562" width="358" height="46" rx="14" fill="url(#card1)"/>
               <text x="30" y="589" fill="#f0f0f0" font-size="15" font-weight="700" font-family="-apple-system,sans-serif">Sleep routine</text>
               <path d="M360 585 L367 592 L374 585" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round"/>
@@ -1702,7 +1710,7 @@
               <!-- "Profile" nav label -->
               <text x="195" y="76" text-anchor="middle" fill="#888" font-size="14" font-family="-apple-system,sans-serif">Profile</text>
 
-              <!-- ── Profile card ── -->
+              <!-- ââ Profile card ââ -->
               <rect x="16" y="90" width="358" height="88" rx="18" fill="url(#card2)"/>
               <!-- Big "Profile" text -->
               <text x="30" y="128" fill="#fff" font-size="30" font-weight="700" font-family="-apple-system,sans-serif">Profile</text>
@@ -1717,7 +1725,7 @@
               <line x1="346" y1="120" x2="342" y2="120" stroke="#888" stroke-width="2" stroke-linecap="round"/>
               <line x1="362" y1="120" x2="366" y2="120" stroke="#888" stroke-width="2" stroke-linecap="round"/>
 
-              <!-- ── Stats section ── -->
+              <!-- ââ Stats section ââ -->
               <rect x="16" y="192" width="358" height="230" rx="18" fill="url(#card2)"/>
               <text x="30" y="218" fill="#f0f0f0" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Stats</text>
 
@@ -1746,7 +1754,7 @@
               <text x="214" y="380" fill="#fff" font-size="28" font-weight="700" font-family="-apple-system,sans-serif">1</text>
               <text x="214" y="398" fill="#666" font-size="11" font-family="-apple-system,sans-serif">Fire days</text>
 
-              <!-- ── Friends section ── -->
+              <!-- ââ Friends section ââ -->
               <rect x="16" y="436" width="358" height="140" rx="18" fill="url(#card2)"/>
               <text x="30" y="462" fill="#f0f0f0" font-size="15" font-weight="600" font-family="-apple-system,sans-serif">Friends</text>
               <text x="30" y="490" fill="#666" font-size="14" font-family="-apple-system,sans-serif">Coming soon.</text>
@@ -1809,14 +1817,14 @@
         </div>
       </div>
 
-      <!-- ─ ─  Dot indicators ─ ─  -->
+      <!-- â â  Dot indicators â â  -->
       <div class="carousel-dots">
         <button class="carousel-dot active" data-goto="0" aria-label="Home screen"></button>
         <button class="carousel-dot"        data-goto="1" aria-label="Tracker screen"></button>
         <button class="carousel-dot"        data-goto="2" aria-label="Profile screen"></button>
       </div>
 
-      <!-- ─ ─  Arrow buttons ─ ─  -->
+      <!-- â â  Arrow buttons â â  -->
       <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M15 18l-6-6 6-6"/>
@@ -1846,21 +1854,21 @@
 
         <!-- Card 1: Goal radar -->
         <div class="feature-card reveal">
-          <div class="feature-icon">🎯 </div>
+          <div class="feature-icon">ð¯ </div>
           <h3 class="feature-title">Your Life, Visualised</h3>
           <p class="feature-desc">A live radar chart shows every major goal at once - Lose weight, Learn a language, Build savings. At a single glance you see exactly where you're strong and where you're slipping. No hiding from the truth, but no stress either. Just clarity.</p>
         </div>
 
         <!-- Card 2: Weekly tracker -->
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">✅ </div>
+          <div class="feature-icon">â </div>
           <h3 class="feature-title">Daily Habits, Linked to Big Goals</h3>
           <p class="feature-desc">Every goal has habits underneath it. Check "Gym" on Tuesday and the progress bar on "Lose weight" moves. Your daily actions are no longer random - they are visibly connected to the future you're building.</p>
         </div>
 
         <!-- Card 3: Streak + consistency -->
         <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-icon">🔥 </div>
+          <div class="feature-icon">ð¥ </div>
           <h3 class="feature-title">Consistency Over Perfection</h3>
           <p class="feature-desc">Next10 tracks your consistency score over the last 30 days - not whether you were perfect, but whether you showed up. A 1-day streak is not failure. It's the beginning. Keep the fire alive, one rep at a time.</p>
         </div>
@@ -1868,7 +1876,7 @@
         <!-- Wide card: week grid visual -->
         <div class="feature-card wide reveal">
           <div>
-            <div class="feature-icon">📅 </div>
+            <div class="feature-icon">ð </div>
             <h3 class="feature-title">The Week at a Glance</h3>
             <p class="feature-desc">The Tracker view gives you a full 7-day grid per habit. Orange check = done. Navigate backward through weeks to see your history and notice patterns. It's honest, it's simple, and it holds you accountable without being punishing.</p>
           </div>
@@ -1878,34 +1886,34 @@
               <div class="wg-day">M</div><div class="wg-day">T</div><div class="wg-day">W</div>
               <div class="wg-day">T</div><div class="wg-day">F</div><div class="wg-day">S</div><div class="wg-day">S</div>
               <div class="wg-label">Gym</div>
-              <div class="wg-cell done">✓ </div>
+              <div class="wg-cell done">â </div>
               <div class="wg-cell"></div><div class="wg-cell"></div><div class="wg-cell"></div><div class="wg-cell"></div>
-              <div class="wg-cell done">✓ </div><div class="wg-cell done">✓ </div>
+              <div class="wg-cell done">â </div><div class="wg-cell done">â </div>
               <div class="wg-label">Run</div>
               <div class="wg-cell"></div><div class="wg-cell"></div><div class="wg-cell"></div><div class="wg-cell"></div>
-              <div class="wg-cell done">✓ </div>
-              <div class="wg-cell done">✓ </div><div class="wg-cell done">✓ </div>
+              <div class="wg-cell done">â </div>
+              <div class="wg-cell done">â </div><div class="wg-cell done">â </div>
             </div>
           </div>
         </div>
 
         <!-- Card 4: Profile stats -->
         <div class="feature-card reveal">
-          <div class="feature-icon">📊 </div>
+          <div class="feature-icon">ð </div>
           <h3 class="feature-title">Stats That Mean Something</h3>
           <p class="feature-desc">Your Profile shows Consistency %, total habits in your catalog, all-time completions, and your best streak. These aren't vanity numbers - they're a mirror of your discipline over time.</p>
         </div>
 
         <!-- Card 5: Intentional design -->
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">⚡ </div>
+          <div class="feature-icon">â¡ </div>
           <h3 class="feature-title">No Noise. Just Signal.</h3>
           <p class="feature-desc">Next10 is not a productivity circus. No gamification gimmicks, no overwhelming dashboards. Four clean tabs: Home, Tracker, Calendar, Profile. Open the app, check your goals, close it. That's the point.</p>
         </div>
 
         <!-- Card 6: Social accountability -->
         <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-icon">👥</div>
+          <div class="feature-icon">ð¥</div>
           <h3 class="feature-title">Accountability Is Coming.</h3>
           <p class="feature-desc">Next10 is built for solo discipline - but we know that showing a friend your streak hits different. Friends, shared goals, and social accountability are on the roadmap. Get in early and shape what it looks like.</p>
         </div>
@@ -1933,7 +1941,7 @@
         <div class="step reveal reveal-delay-1">
           <div class="step-num">2</div>
           <h3 class="step-title">Attach daily habits</h3>
-          <p class="step-desc">Under each goal, define the concrete habits that move you toward it. "Run 3×/week" under "Lose weight." "30 min Duolingo" under "Learn a language." Small, trackable, repeatable.</p>
+          <p class="step-desc">Under each goal, define the concrete habits that move you toward it. "Run 3Ã/week" under "Lose weight." "30 min Duolingo" under "Learn a language." Small, trackable, repeatable.</p>
         </div>
         <div class="step reveal reveal-delay-2">
           <div class="step-num">3</div>
@@ -1969,7 +1977,7 @@
     <div class="container">
       <div class="waitlist-card reveal">
 
-        <!-- ─ ─  FORM STATE (visible by default) ─ ─  -->
+        <!-- â â  FORM STATE (visible by default) â â  -->
         <div id="wlFormState">
           <span class="tag" style="margin-bottom:28px;display:inline-flex">
             <span class="dot"></span>Now Accepting Early Access
@@ -1984,7 +1992,7 @@
             <!-- Name -->
             <div class="wl-field">
               <label class="wl-label" for="wlName">Your Name</label>
-              <input class="wl-input" id="wlName" name="name" type="text" placeholder="e.g. Alex Müller" autocomplete="name"/>
+              <input class="wl-input" id="wlName" name="name" type="text" placeholder="e.g. Alex MÃ¼ller" autocomplete="name"/>
               <span class="wl-error-msg" id="wlNameErr">Please enter your name.</span>
             </div>
 
@@ -2017,7 +2025,7 @@
               </label>
               <div class="wl-select-wrap">
                 <select class="wl-select" id="wlSource" name="source">
-                  <option value="" selected>Choose one</option>
+                  <option value="" selected>Choose oneÂ</option>
                   <option value="Instagram">Instagram</option>
                   <option value="Facebook">Facebook</option>
                   <option value="X (Twitter)">X (Twitter)</option>
@@ -2051,10 +2059,10 @@
               <label class="wl-check-row" id="wlTosRow">
                 <input type="checkbox" id="wlTos" name="tos"/>
                 <span class="wl-check-label">
-                  I agree to the <a href="#" onclick="return false;">Terms &amp; Conditions</a> and <a href="#" onclick="return false;">Privacy Policy</a>.
+                  I agree to the <a href="/terms-of-service.html" target="_blank">Terms &amp; Conditions</a> and <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
                 </span>
               </label>
-              <span class="wl-error-msg" id="wlTosErr">↑  Please tick this box to continue.</span>
+              <span class="wl-error-msg" id="wlTosErr">â  Please tick this box to continue.</span>
 
               <label class="wl-check-row" id="wlMarketingRow">
                 <input type="checkbox" id="wlMarketing" name="marketing"/>
@@ -2062,7 +2070,7 @@
                   I agree to receive development updates and launch news about Next10 by email. You can unsubscribe at any time.
                 </span>
               </label>
-              <span class="wl-error-msg" id="wlMarketingErr">↑  Please tick this box to continue.</span>
+              <span class="wl-error-msg" id="wlMarketingErr">â  Please tick this box to continue.</span>
             </div>
 
             <!-- Submit -->
@@ -2075,7 +2083,7 @@
 
             <!-- Network error banner -->
             <div class="wl-banner error-net" id="wlError">
-              <span class="wl-banner-icon">⚠ ️ </span>
+              <span class="wl-banner-icon">â  ï¸ </span>
               <div class="wl-banner-title">Something went wrong</div>
               <div class="wl-banner-body" id="wlErrorBody">We couldn't save your details. Please try again in a moment.</div>
             </div>
@@ -2085,10 +2093,10 @@
           <p class="waitlist-fine">No spam. No credit card. Just a seat at the front of the line.</p>
         </div>
 
-        <!-- ─ ─  SUCCESS STATE (hidden until submission) ─ ─  -->
+        <!-- â â  SUCCESS STATE (hidden until submission) â â  -->
         <div id="wlSuccess">
 
-          <div class="wl-success-circle">🎉 </div>
+          <div class="wl-success-circle">ð </div>
           <span class="wl-success-tag">You're on the list</span>
           <div class="wl-success-title">See you at launch.</div>
           <p class="wl-success-body">
@@ -2097,27 +2105,27 @@
 
           <div class="wl-teaser-grid">
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">🎯 </span>
+              <span class="wl-teaser-icon">ð¯ </span>
               <div class="wl-teaser-label">Goal Radar<br>Chart</div>
             </div>
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">✅ </span>
+              <span class="wl-teaser-icon">â </span>
               <div class="wl-teaser-label">Daily Habit<br>Tracker</div>
             </div>
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">🔥 </span>
+              <span class="wl-teaser-icon">ð¥ </span>
               <div class="wl-teaser-label">Streak &amp;<br>Consistency</div>
             </div>
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">📅 </span>
+              <span class="wl-teaser-icon">ð </span>
               <div class="wl-teaser-label">Weekly<br>Overview</div>
             </div>
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">📊 </span>
+              <span class="wl-teaser-icon">ð </span>
               <div class="wl-teaser-label">Progress<br>Stats</div>
             </div>
             <div class="wl-teaser-card">
-              <span class="wl-teaser-icon">👥 </span>
+              <span class="wl-teaser-icon">ð¥ </span>
               <div class="wl-teaser-label">Friends<br>Coming Soon</div>
             </div>
           </div>
@@ -2160,11 +2168,11 @@
           </a>
         </div>
         <p class="footer-copy">© 2026 Next10. All rights reserved.</p>
-        <nav class="footer-legal" aria-label="Legal">
+        <div class="footer-legal" aria-label="Legal">
           <a href="/privacy-policy.html">Privacy Policy</a>
           <a href="/terms-of-service.html">Terms of Service</a>
           <a href="/cookie-policy.html">Cookie Policy</a>
-        </nav>
+        </div>
       </div>
     </div>
   </footer>
@@ -2173,13 +2181,13 @@
        JAVASCRIPT
   ============================================================ -->
   <script>
-    // ─ ─  NAV scroll effect ─ ─ 
+    // â â  NAV scroll effect â â 
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // ─ ─  Scroll reveal ─ ─ 
+    // â â  Scroll reveal â â 
     const reveals = document.querySelectorAll('.reveal');
     const revObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -2188,7 +2196,7 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => revObs.observe(el));
 
-    // ─ ─  Smooth scroll: nav + hero "Join Waitlist" buttons →  form ─ ─ 
+    // â â  Smooth scroll: nav + hero "Join Waitlist" buttons â  form â â 
     function scrollToWaitlist() {
       const target = document.getElementById('waitlist');
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2196,9 +2204,9 @@
     document.getElementById('navCta').addEventListener('click', scrollToWaitlist);
     document.getElementById('heroCta').addEventListener('click', scrollToWaitlist);
 
-    // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+    // â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
     // CAROUSEL - single rAF loop for float + slide animation
-    // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+    // â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
     (function () {
       const slides = Array.from(document.querySelectorAll('.carousel-slide'));
       const dots   = Array.from(document.querySelectorAll('.carousel-dot'));
@@ -2272,12 +2280,12 @@
         // direction: 1 = next (right arrow), -1 = prev (left arrow)
         // Rotate slot assignments
         if (direction > 0) {
-          // Move everything one slot left: center→ left, right→ center, left→ right
+          // Move everything one slot left: centerâ left, rightâ center, leftâ right
           slides.forEach((_, i) => {
             slotOf[i] = (slotOf[i] + 1) % 3;
           });
         } else {
-          // Move everything one slot right: center→ right, left→ center, right→ left
+          // Move everything one slot right: centerâ right, leftâ center, rightâ left
           slides.forEach((_, i) => {
             slotOf[i] = (slotOf[i] + 2) % 3;
           });
@@ -2329,9 +2337,9 @@
       });
     }());
 
-        // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-    // WAITLIST FORM →  Google Sheets via Apps Script
-    // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+        // â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
+    // WAITLIST FORM â  Google Sheets via Apps Script
+    // â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â â 
     (function () {
       const SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbxgZvBaKYvEFKj2HAh64pThvJQBxoSyzHkevWVRsV0wScG5QFrvlt9X0ccTJ9r4bkAI/exec';
       const STORAGE_KEY = 'n10_wl_submitted';
@@ -2396,7 +2404,7 @@
       function setLoading(on) {
         submitBtn.disabled = on;
         submitBtn.innerHTML = on
-          ? '<div class="wl-spinner"></div><span>Sending</span>'
+          ? '<div class="wl-spinner"></div><span>SendingÂ</span>'
           : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg><span>Join the Waitlist - It\'s Free</span>';
       }
 
@@ -2415,7 +2423,7 @@
         setLoading(false);
       }
 
-      // Already submitted on this device →  show success immediately
+      // Already submitted on this device â  show success immediately
       if (localStorage.getItem(STORAGE_KEY)) showSuccess();
 
       form.addEventListener('submit', function(e) {
@@ -2444,7 +2452,7 @@
         });
         const url = SCRIPT_URL + '?' + params.toString();
 
-        // ─ ─  Hidden iframe transport ─ ─ 
+        // â â  Hidden iframe transport â â 
         // Appending the URL to an invisible iframe fires a GET request
         // that follows Google's redirect chain without CORS errors.
         // Apps Script runs doGet(e) and writes the row. We never read
