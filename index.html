@@ -1248,9 +1248,7 @@
       letter-spacing: 0.05em;
       transition: color 0.2s;
     }
-    .footer-legal a:hover {
-      color: var(--text-muted);
-    }
+    .footer-legal a:hover { color: var(--text-muted); }
 
     /* =============================================
        SCROLL REVEAL ANIMATION
@@ -2202,25 +2200,21 @@
     // CAROUSEL - single rAF loop for float + slide animation
     // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
     (function () {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const car    = document.getElementById('carousel');
-      const dots   = document.querySelectorAll('.carousel-dot');
+      const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+      const dots   = Array.from(document.querySelectorAll('.carousel-dot'));
+      const N = slides.length;
 
-      // --- Responsive position definitions ---
-      function getSlots() {
-        const w = window.innerWidth;
-        const xOff = w <= 480 ? 200 : w <= 720 ? 240 : 272;
-        return [
-          { x:     0, ry:   0, sc: 1.00, yBase:  0, floatAmp:  8, floatSpeed: 0.00016 },  // center
-          { x: -xOff, ry:  24, sc: 0.78, yBase: 28, floatAmp:  6, floatSpeed: 0.00014 },  // left
-          { x:  xOff, ry: -24, sc: 0.78, yBase: 28, floatAmp:  6, floatSpeed: 0.00015 }   // right
-        ];
-      }
-      let SLOT = getSlots();
+      // --- Position definitions ---
+      // Each slot: [translateX, rotateY(deg), scale, translateY_base]
+      const SLOT = [
+        { x:    0, ry:   0, sc: 1.00, yBase:  0,  floatAmp:  8, floatSpeed: 0.00016 },  // center - 5s cycle
+        { x: -272, ry:  24, sc: 0.78, yBase: 28,  floatAmp:  6, floatSpeed: 0.00014 },  // left   - 5.6s cycle
+        { x:  272, ry: -24, sc: 0.78, yBase: 28,  floatAmp:  6, floatSpeed: 0.00015 },  // right  - 5.2s cycle
+      ];
 
       // Current slot assignment per slide index
       let slotOf = [0, 2, 1]; // slide0=center, slide1=right, slide2=left
-      let cur    = 0;         // which slide index is currently center
+      let cur    = 0;         // which slide is in slot 0 (center)
       let busy   = false;
 
       // Animated state per slide: current x,ry,sc,y - lerped toward target
@@ -2230,30 +2224,35 @@
       });
 
       // Float phase offsets so phones don't bob in sync
-      const phaseOffset = [0, 2000, 4000];
+      const phaseOffset = [0, 1200, 2400];
+      let startTime = null;
 
       function lerp(a, b, t) { return a + (b - a) * t; }
       // Ease factor per frame: higher = snappier
-      const EASE = 0.08;
+      const EASE = 0.07;
 
       function tick(ts) {
-        const t = ts || 0;
+        if (!startTime) startTime = ts;
+        const t = ts - startTime;
 
         slides.forEach((slide, i) => {
           const slotIdx = slotOf[i];
           const slot    = SLOT[slotIdx];
+          const st      = state[i];
 
           // Float offset
           const floatY = Math.sin((t + phaseOffset[slotIdx]) * slot.floatSpeed * Math.PI * 2)
                          * slot.floatAmp;
           const targetY = slot.yBase + floatY;
+          const targetX = slot.x;
+          const targetRY = slot.ry;
+          const targetSC = slot.sc;
 
           // Lerp current state toward target
-          const st = state[i];
-          st.x  = lerp(st.x,  slot.x,  EASE);
-          st.ry = lerp(st.ry, slot.ry, EASE);
-          st.sc = lerp(st.sc, slot.sc, EASE);
-          st.y  = lerp(st.y,  targetY, EASE);
+          st.x  = lerp(st.x,  targetX,  EASE);
+          st.ry = lerp(st.ry, targetRY, EASE);
+          st.sc = lerp(st.sc, targetSC, EASE);
+          st.y  = lerp(st.y,  targetY,  EASE);
 
           slide.style.transform =
             `translateX(${st.x.toFixed(2)}px) rotateY(${st.ry.toFixed(2)}deg) scale(${st.sc.toFixed(4)}) translateY(${st.y.toFixed(2)}px)`;
@@ -2263,91 +2262,72 @@
       }
       requestAnimationFrame(tick);
 
-      // Pause animation when tab is hidden (battery/performance)
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) cancelAnimationFrame(window._carouselRaf);
-        else window._carouselRaf = requestAnimationFrame(tick);
-      });
-      // Update slot positions on resize / orientation change
-      window.addEventListener('resize', () => { SLOT = getSlots(); }, { passive: true });
-
       // --- Slide switching ---
       function goTo(idx, direction) {
         if (busy) return;
+        const next = ((idx % N) + N) % N;
+        if (next === cur) return;
         busy = true;
-        cur = ((idx % slides.length) + slides.length) % slides.length;
 
         // direction: 1 = next (right arrow), -1 = prev (left arrow)
         // Rotate slot assignments
         if (direction > 0) {
-          // Move everything one slot left: center->left, right->center, left->right
+          // Move everything one slot left: center→ left, right→ center, left→ right
           slides.forEach((_, i) => {
             slotOf[i] = (slotOf[i] + 1) % 3;
           });
         } else {
-          // Move everything one slot right: center->right, left->center, right->left
+          // Move everything one slot right: center→ right, left→ center, right→ left
           slides.forEach((_, i) => {
             slotOf[i] = (slotOf[i] + 2) % 3;
           });
         }
 
-        const names = ['pos-center', 'pos-left', 'pos-right'];
+        cur = next;
 
         // Update z-index and position classes
         slides.forEach((s, i) => {
           s.classList.remove('pos-center', 'pos-left', 'pos-right');
+          const names = ['pos-center', 'pos-right', 'pos-left'];
           s.classList.add(names[slotOf[i]]);
+          s.style.zIndex = slotOf[i] === 0 ? 5 : 3;
         });
 
         // Screen crossfade - only fade the outgoing & incoming center slides
-        const outgoing = slides.find((_, i) => slotOf[i] === (direction > 0 ? 1 : 2));
+        const outgoing = slides.find((_, i) => {
+          // Before the slot rotation above, the current center had slotOf[i]=0
+          // After rotation it moved to slot 1 (next) or 2 (prev)
+          return direction > 0 ? slotOf[i] === 1 : slotOf[i] === 2;
+        });
         const incoming = slides.find((_, i) => slotOf[i] === 0);
+        [outgoing, incoming].filter(Boolean).forEach(s => s.classList.add('screen-fade'));
+        setTimeout(() => [outgoing, incoming].filter(Boolean).forEach(s => s.classList.remove('screen-fade')), 420);
 
-        if (outgoing) {
-          outgoing.classList.add('transitioning-out');
-          setTimeout(() => outgoing.classList.remove('transitioning-out'), 500);
-        }
-        if (incoming) {
-          incoming.classList.add('transitioning-in');
-          setTimeout(() => {
-            incoming.classList.add('fade-done');
-            setTimeout(() => {
-              incoming.classList.remove('transitioning-in', 'fade-done');
-              busy = false;
-            }, 500);
-          }, 50);
-        } else {
-          busy = false;
-        }
-
-        // Update dots
         dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+
+        setTimeout(() => { busy = false; }, 750);
       }
 
-      // Arrow buttons
-      document.getElementById('carouselPrev')?.addEventListener('click', () => goTo(cur - 1, -1));
-      document.getElementById('carouselNext')?.addEventListener('click', () => goTo(cur + 1,  1));
-
-      // Dot buttons - use data-goto attribute (matching the HTML)
+      document.getElementById('carouselNext').addEventListener('click', () => goTo(cur + 1,  1));
+      document.getElementById('carouselPrev').addEventListener('click', () => goTo(cur - 1, -1));
       dots.forEach(d => d.addEventListener('click', () => {
         const target = +d.dataset.goto;
         goTo(target, target > cur ? 1 : -1);
       }));
-
-      // Click on side slides to navigate
       slides.forEach((s, i) => s.addEventListener('click', () => {
         if (slotOf[i] === 2) goTo(cur - 1, -1); // left slot
         if (slotOf[i] === 1) goTo(cur + 1,  1); // right slot
       }));
 
-      // Touch / swipe support
+      // Touch swipe
       let sx = 0;
+      const car = document.getElementById('carousel');
       car.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
       car.addEventListener('touchend',   e => {
         const dx = e.changedTouches[0].clientX - sx;
         if (Math.abs(dx) > 40) dx < 0 ? goTo(cur + 1, 1) : goTo(cur - 1, -1);
       });
-    }())
+    }());
 
         // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
     // WAITLIST FORM →  Google Sheets via Apps Script
