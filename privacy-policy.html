@@ -42,6 +42,10 @@ strong{color:var(--text);font-weight:600}
 .footer-note{margin-top:60px;padding-top:32px;border-top:1px solid var(--border);text-align:center;color:var(--text-faint);font-size:13px}
 .footer-note a{color:var(--text-faint)}
 .footer-note a:hover{color:var(--accent)}
+.table-wrap{overflow-x:auto;margin:20px 0 28px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border:1px solid var(--border);color:#ccc;vertical-align:top}
+th{color:#fff;font-weight:600;background:var(--surface)}
 @media(max-width:600px){nav.legal-nav{padding:14px 20px}.legal-container{padding:40px 20px 80px}h2{font-size:21px}}
 </style>
 </head>
@@ -56,160 +60,188 @@ Back to Home
 <div class="legal-container">
 <div class="legal-hero">
 <h1>Privacy Policy</h1>
-<p class="last-updated">Last updated: May 17, 2026</p>
-<p class="legal-intro">Welcome to Next10. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at next10.live (the "Site") and join our waitlist. Please read this policy carefully.</p>
+<p class="last-updated">Effective Date: 11.08.2026</p>
+<p class="legal-intro">This privacy policy explains how Next10 collects, uses, stores, and protects your personal data when you use our app. We built Next10 to help you track your habits and goals, and we take your privacy seriously. Please read this policy carefully to understand your rights and how your data is handled.</p>
 </div>
 
 <div class="toc">
 <h3>Contents</h3>
 <ol>
-<li><a href="#s0">Data Controller</a></li>
-<li><a href="#s1">Information We Collect</a></li>
-<li><a href="#s2">How We Use Your Information</a></li>
-<li><a href="#s3">Legal Basis for Processing (GDPR)</a></li>
-<li><a href="#s4">How We Store Your Information</a></li>
-<li><a href="#s5">Sharing Your Information</a></li>
-<li><a href="#s6">Cookies and Tracking Technologies</a></li>
-<li><a href="#s7">Your Rights</a></li>
-<li><a href="#s8">California Privacy Rights (CCPA)</a></li>
-<li><a href="#s9">Automated Decision-Making</a></li>
-<li><a href="#s10">Children's Privacy</a></li>
-<li><a href="#s11">Links to Third-Party Sites</a></li>
-<li><a href="#s12">International Data Transfers</a></li>
-<li><a href="#s13">Data Retention</a></li>
-<li><a href="#s14">Security of Your Information</a></li>
-<li><a href="#s15">Changes to This Privacy Policy</a></li>
-<li><a href="#s16">Contact Us</a></li>
+<li><a href="#s1">Data Controller</a></li>
+<li><a href="#s2">What Data We Collect</a></li>
+<li><a href="#s3">Purposes of Processing &amp; Legal Basis</a></li>
+<li><a href="#s4">Sub-processors (Third Parties We Use)</a></li>
+<li><a href="#s5">International Data Transfers</a></li>
+<li><a href="#s6">Data Visible to Other Users</a></li>
+<li><a href="#s7">Data Retention &amp; Account Deletion</a></li>
+<li><a href="#s8">Children's Privacy</a></li>
+<li><a href="#s9">Leaderboard Processing</a></li>
+<li><a href="#s10">Your Rights</a></li>
+<li><a href="#s11">Security</a></li>
+<li><a href="#s12">Changes to This Policy</a></li>
 </ol>
 </div>
 
-<h2 id="s0">0. Data Controller</h2>
-<p>The data controller responsible for the processing of personal data via this Site is:</p>
-<p>
-<strong>Nazar Mishchenko ("Next10")</strong><br>
-Hohenzollernstr. 51<br>
-75177 Pforzheim<br>
-Germany
-</p>
-<p>Email: <a href="mailto:privacy@next10.live">privacy@next10.live</a><br>
-Telephone: <a href="tel:+4916093512675">+49 160 93512675</a></p>
-<p>If you have any questions about how your personal data is processed, you can contact the data controller using any of the above details.</p>
+<h2 id="s1">1. Data Controller</h2>
+<p>The controller responsible for your personal data under the General Data Protection Regulation (GDPR) is:</p>
+<p><strong>Nazar Mishchenko</strong><br>Email: <a href="mailto:nazar.mischenko13@gmail.com">nazar.mischenko13@gmail.com</a></p>
+<p>For any questions about this privacy policy or to exercise your data protection rights (see Section 10), you can contact the above email address at any time.</p>
+<p>Since Next10 is currently operated by an individual rather than a registered company, no separate Data Protection Officer (DPO) has been appointed &#8212; this is not legally required at your current scale under GDPR (a DPO is mandatory only for large-scale systematic monitoring or large-scale special-category data processing, which doesn't apply here).</p>
 
-<h2 id="s1">1. Information We Collect</h2>
-<h3>Information You Provide to Us</h3>
-<p>We collect information you voluntarily provide to us when you join our waitlist, including:</p>
+<h2 id="s2">2. What Data We Collect</h2>
+<h3>2.1 Account &amp; Authentication Data</h3>
+<p>Collected via Firebase Authentication when you register:</p>
 <ul>
-<li><strong>Name</strong> - your first and last name</li>
-<li><strong>Email address</strong> - to communicate waitlist updates and marketing communications</li>
-<li><strong>Device platform</strong> - iPhone, Android, or both (to tailor launch communications)</li>
-<li><strong>Referral source</strong> - how you found out about Next10 (optional)</li>
-<li><strong>Feature suggestions</strong> - any optional feedback you provide</li>
+<li><strong>Google Sign-In:</strong> your Google account email and name</li>
+<li><strong>Apple Sign-In:</strong> your Apple ID email (or Apple's private relay email) and name</li>
+<li><strong>Email/password:</strong> the email and password you provide</li>
 </ul>
-<h3>How Your Information Reaches Us</h3>
-<p>When you submit the waitlist form on next10.live, your data is transmitted directly to a Google Sheet maintained by us, using Google Apps Script. Google LLC acts as our data processor for this storage. Google's servers are located in the United States; we rely on Google's certification under the EU&#8211;US Data Privacy Framework and Standard Contractual Clauses to ensure your data receives equivalent protection to EU law.</p>
-<h3>Information Automatically Collected</h3>
-<p>When you visit our Site, we may automatically collect technical information, including browser type and version, operating system, referring URLs, device type and screen resolution, pages visited and time spent, approximate geographic location (country/region level), and anonymised IP address.</p>
-<div class="highlight-box"><p>We do not collect your precise location, financial data, government identification numbers, or any special category personal data as defined under GDPR Article 9.</p></div>
+<p>Purpose: to create and secure your account, and to verify your identity when you sign in. Your email and password are processed exclusively by Firebase Authentication and never reach our Firestore database.</p>
 
-<h2 id="s2">2. How We Use Your Information</h2>
-<p>We use the information you provide for the following purposes:</p>
+<h3>2.2 Public Profile Data</h3>
+<p>Visible to other users (to friends, or to any user if your profile is not set to private) &#8212; stored at users/{uid}:</p>
 <ul>
-<li><strong>Waitlist management</strong> &#8212; to record your place on the waitlist and verify the integrity of submissions.</li>
-<li><strong>Marketing and launch communications</strong> &#8212; to send you emails about the Next10 app, including: development updates, behind-the-scenes news, beta access invitations, launch announcements, post-launch product updates, new feature releases, and other information we believe will be useful to you as someone interested in the app. These emails are sent on the basis of your explicit consent given at signup. You can unsubscribe at any time using the link at the bottom of any email, or by emailing <a href="mailto:privacy@next10.live">privacy@next10.live</a>.</li>
-<li><strong>Service and security</strong> &#8212; to operate, maintain, secure, and improve the Site.</li>
-<li><strong>Analytics</strong> &#8212; to understand (in aggregated, anonymised form) how visitors use the Site, subject to your cookie consent.</li>
-<li><strong>Legal compliance</strong> &#8212; to comply with applicable laws and to detect, prevent, or address fraud or misuse.</li>
+<li>Nickname (display name), including a lowercase version used to make your nickname searchable by other users</li>
+<li>Profile photo</li>
+<li>Account creation and last-updated timestamps</li>
+<li>Whether your account is private</li>
+<li>Your pinned friends</li>
+<li>Computed completion statistics only: daily, weekly, monthly, and yearly completion percentages, and your current streak &#8212; shown as raw numbers only</li>
 </ul>
-<p><strong>We will never sell, rent, or trade your personal information to third parties for their own marketing purposes.</strong></p>
+<p>Purpose: to let you build a public profile, be found by other users, and show your progress to friends without exposing what your goals or habits actually are.</p>
 
-<h2 id="s3">3. Legal Basis for Processing (GDPR)</h2>
-<p>If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, we rely on the following lawful bases to process your personal data:</p>
+<h3>2.3 Private App Data (Habits &amp; Goals)</h3>
+<p>Stored at users/{uid}/appdata/main &#8212; never visible to any other user, including friends. This data exists solely so your habits and goals are preserved and synced if you switch devices:</p>
 <ul>
-<li><strong>Consent (Article 6(1)(a))</strong> - You joined our waitlist and gave explicit consent to receive marketing communications about Next10.</li>
-<li><strong>Legitimate Interests (Article 6(1)(f))</strong> - Operating, maintaining, and improving our website and services, where such interests are not overridden by your rights.</li>
-<li><strong>Legal Obligation (Article 6(1)(c))</strong> - Compliance with applicable laws and regulations.</li>
+<li>Your name, app theme, onboarding status, and a copy of your profile photo</li>
+<li>Your full goals and habits: titles, schedules, reminder times, icons, deadlines</li>
+<li>Your complete habit completion history</li>
 </ul>
-<p>You may withdraw consent at any time by contacting us at <a href="mailto:privacy@next10.live">privacy@next10.live</a> or using the unsubscribe link in any email we send you.</p>
+<p>Purpose: to enable cross-device sync, so that if you switch phones or reinstall the app, all of your habit and goal data is restored exactly as you left it.</p>
 
-<h2 id="s4">4. How We Store Your Information</h2>
-<p>Your waitlist data is stored in a Google Sheet maintained by us, processed through Google Apps Script. Google LLC acts as our data processor for this purpose, subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and the Google Cloud Data Processing Addendum. Our website is hosted on GitHub Pages, subject to <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>.</p>
-<p>We implement appropriate technical and organisational security measures to protect your data against accidental loss, unauthorised access, alteration, or disclosure. Access to your personal data is restricted to those with a legitimate need to process it.</p>
-
-<h2 id="s5">5. Sharing Your Information</h2>
-<p>We do not sell your personal data. We may share your information only with the following data processors and in the following limited circumstances:</p>
+<h3>2.4 Social / Friends Data</h3>
 <ul>
-<li><strong>Google LLC (Google Sheets and Google Apps Script)</strong> &#8212; acting as our data processor for waitlist storage and form processing. Google processes data on our instructions in accordance with the Google Cloud Data Processing Addendum. Data may be stored on Google servers in the United States, protected by the EU&#8211;US Data Privacy Framework and Standard Contractual Clauses.</li>
-<li><strong>Google LLC (Google Analytics)</strong> &#8212; acting as our analytics processor, only if you have consented to analytics cookies. IP addresses are anonymised before storage.</li>
-<li><strong>GitHub, Inc.</strong> &#8212; website hosting (GitHub Pages). GitHub does not have access to waitlist submissions; it only serves the static site files.</li>
-<li><strong>Legal Requirements</strong> &#8212; We may disclose information where required by law, court order, or governmental authority.</li>
-<li><strong>Business Transfers</strong> &#8212; In the event of a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction, with appropriate notice to you.</li>
+<li>Friend connections and the date they were formed</li>
+<li>Friend requests: sender's nickname, profile photo, and timestamp</li>
 </ul>
+<p>Purpose: to power the friends and social features of the app.</p>
 
-<h2 id="s6">6. Cookies and Tracking Technologies</h2>
-<p>Our Site may use cookies and similar technologies. For full details on what cookies we use, why we use them, and how to manage them, please see our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+<h3>2.5 Data Stored Locally Only (never sent to our servers)</h3>
+<p>Vacation mode dates and app language preference stay on your device only.</p>
 
-<h2 id="s7">7. Your Rights</h2>
-<p>Depending on your location, you may have the following rights regarding your personal data:</p>
+<h3>2.6 A Note on Free-Text Fields</h3>
+<p>Habit and goal titles are free text you choose yourself. If you voluntarily include sensitive information in these fields (e.g., referencing a health condition or medication), it is stored privately as described in 2.3 and is never shown to other users. We do not analyze or process this content for its meaning.</p>
+
+<h2 id="s3">3. Purposes of Processing &amp; Legal Basis</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Purpose</th><th>Data Used</th><th>Legal Basis</th></tr></thead>
+<tbody>
+<tr><td>Creating and securing your account</td><td>Auth data (2.1)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
+<tr><td>Verifying subscription/payment status</td><td>Account ID and subscription status, processed via Apple's In-App Purchase system, Google Play Billing, and/or a third-party subscription platform (see Section 4 for current sub-processors)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
+<tr><td>Syncing your habits and goals across devices</td><td>Private app data (2.3)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
+<tr><td>Public profile, friend search, and social features</td><td>Public profile &amp; friends data (2.2, 2.4)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
+<tr><td>Leaderboard / percentile ranking</td><td>Computed completion statistics (2.2)</td><td>Contract necessity (Art. 6(1)(b) GDPR) &#8212; advertised as a built-in feature of the app</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="s4">4. Sub-processors (Third Parties We Use)</h2>
+<p>We use the following service providers to operate Next10. Each processes personal data only on our instructions and is bound by data processing agreements:</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Sub-processor</th><th>What They Process</th><th>Location</th></tr></thead>
+<tbody>
+<tr><td>Google Firebase (Firestore)</td><td>Public profile, private app data, friends/social data</td><td>EU (eur3 &#8212; Belgium/Netherlands)</td></tr>
+<tr><td>Google Firebase (Authentication)</td><td>Email, name, sign-in credentials</td><td>Global/US, transferred under the EU-U.S. Data Privacy Framework</td></tr>
+<tr><td>Google (Google Sign-In)</td><td>Google account email and name, at your choice &#8212; see Google's Privacy Policy</td><td>Governed by Google's own privacy policy</td></tr>
+<tr><td>Apple (Sign in with Apple)</td><td>Apple ID email/relay email and name, at your choice &#8212; see Apple's Privacy Policy</td><td>Governed by Apple's own privacy policy</td></tr>
+<tr><td>Apple In-App Purchase / Google Play Billing / third-party processor &#8212; TBD</td><td>Subscription status</td><td>TBD once selected</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="s5">5. International Data Transfers</h2>
+<p>Most of your data (public profile, private app data, friends/social data) is stored in Google Firebase's EU region (eur3, physically located in Belgium and the Netherlands) and does not leave the European Union.</p>
+<p>However, authentication data (your email, name, and sign-in credentials) is processed by Firebase Authentication on infrastructure that may be located outside the EU, including in the United States. This transfer is carried out under the EU-U.S. Data Privacy Framework (DPF), the legal mechanism recognized by the European Commission for transfers of personal data from the EU to certified U.S. companies. Google LLC is certified under this framework.</p>
+<p>If you sign in using Google or Apple, those providers may also process limited data outside the EU as part of their own authentication systems, governed by their respective privacy policies (see Section 4).</p>
+
+<h2 id="s6">6. Data Visible to Other Users</h2>
+<p>Unlike most of your data, some information in Next10 is visible to other people using the app. Here's exactly what is shown, to whom, and when:</p>
+<h3>If your profile is public (default, unless you set it to private):</h3>
 <ul>
-<li><strong>Right to Access</strong> - Request a copy of the personal data we hold about you.</li>
-<li><strong>Right to Rectification</strong> - Request correction of inaccurate or incomplete data.</li>
-<li><strong>Right to Erasure</strong> - Request deletion of your personal data where we have no compelling reason to continue processing it.</li>
-<li><strong>Right to Restrict Processing</strong> - Request that we temporarily stop processing your data in certain circumstances.</li>
-<li><strong>Right to Data Portability</strong> - Receive your data in a structured, commonly used, machine-readable format.</li>
-<li><strong>Right to Object</strong> - Object to processing based on legitimate interests or for direct marketing.</li>
-<li><strong>Right to Withdraw Consent</strong> - Where processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing.</li>
+<li>Your nickname is searchable by any user of the app</li>
+<li>Your profile photo is visible to any user who finds your profile</li>
+<li>Your completion statistics (daily/weekly/monthly/yearly percentages and streak) are visible as raw numbers only &#8212; no goal names, habit names, or any other detail about what you're actually working on</li>
 </ul>
-<p>To exercise any of these rights, contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a>. We will respond within 30 days. We may need to verify your identity before processing your request.</p>
-<p>If you are in the EEA or UK, you also have the right to lodge a complaint with your local supervisory authority. In Germany, this is the relevant state data protection authority (Landesbeauftragte f&#252;r Datenschutz). In the UK, this is the <a href="https://ico.org.uk" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a>.</p>
-
-<h2 id="s8">8. California Privacy Rights (CCPA / CPRA)</h2>
-<p>If you are a California resident, the CCPA as amended by the CPRA grants you additional rights:</p>
+<h3>If your profile is set to private:</h3>
 <ul>
-<li><strong>Right to Know</strong> - What personal information we collect, use, disclose, or sell.</li>
-<li><strong>Right to Delete</strong> - Request deletion of personal information we have collected.</li>
-<li><strong>Right to Correct</strong> - Request correction of inaccurate personal information.</li>
-<li><strong>Right to Opt-Out</strong> - We do not sell or share personal information for cross-context behavioural advertising.</li>
-<li><strong>Right to Non-Discrimination</strong> - We will not discriminate against you for exercising your CCPA rights.</li>
+<li>Your profile is not discoverable via search</li>
+<li>Only your confirmed friends can see your nickname, profile photo, and completion statistics</li>
 </ul>
-<p>To submit a CCPA request, contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a> with the subject line "CCPA Request".</p>
-
-<h2 id="s9">9. Automated Decision-Making</h2>
-<p>We do not use automated decision-making or profiling that produces legal or similarly significant effects on you. Your waitlist position is determined on a first-come, first-served basis based on submission timestamp, without any algorithmic scoring.</p>
-
-<h2 id="s10">10. Children's Privacy</h2>
-<p>Our Site is not directed at children. We do not knowingly collect personal data from anyone under the age of 16 in the European Economic Area, or under the age of 13 in other jurisdictions, without verified parental or guardian consent.</p>
-<p>If you believe a child has provided personal data to us without appropriate consent, please contact us at <a href="mailto:privacy@next10.live">privacy@next10.live</a> and we will delete the information promptly.</p>
-
-<h2 id="s11">11. Links to Third-Party Sites</h2>
-<p>Our Site may contain links to third-party websites such as Instagram, X (Twitter), and others. These links are provided for convenience only. This Privacy Policy does not apply to those sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
-
-<h2 id="s12">12. International Data Transfers</h2>
-<p>Your personal information may be transferred to, stored in, and processed in countries other than your own, including the United States, where Google's infrastructure is located. When we transfer data outside the EEA or UK, we ensure appropriate safeguards are in place, including Google's certification under the EU&#8211;US Data Privacy Framework and Standard Contractual Clauses (SCCs), to maintain the same level of protection required under GDPR.</p>
-
-<h2 id="s13">13. Data Retention</h2>
-<p>We retain your personal data for as long as necessary to fulfil the purposes described in this Privacy Policy, or as required by law:</p>
+<h3>To your friends specifically (regardless of public/private setting):</h3>
 <ul>
-<li><strong>Waitlist data</strong> &#8212; Retained for as long as you remain subscribed to Next10 communications. You can withdraw at any time, after which we will delete your data within 30 days, except where retention is required by law.</li>
-<li><strong>Post-launch marketing data</strong> &#8212; If you continue to consent to marketing communications after the app launches, we will retain your contact details and engagement data until you unsubscribe or request deletion.</li>
-<li><strong>Analytics data</strong> &#8212; Retained in anonymised, aggregated form indefinitely; individual session data for up to 14 months (the default in Google Analytics 4).</li>
-<li><strong>Legal and compliance records</strong> &#8212; Retained as required by applicable law, typically 6 years under German commercial law (HGB &#167;257).</li>
+<li>The same profile and statistics described above</li>
+<li>Nothing from your private app data (Section 2.3) &#8212; your actual goals, habit names, schedules, and completion history are never visible to friends or any other user, under any setting</li>
 </ul>
-
-<h2 id="s14">14. Security of Your Information</h2>
-<p>We use reasonable administrative, technical, and physical security measures designed to protect your personal information from unauthorised access, use, or disclosure. These include access controls, data encryption in transit (HTTPS/TLS), and regular security assessments. However, no method of internet transmission is 100% secure.</p>
-
-<h2 id="s15">15. Changes to This Privacy Policy</h2>
-<p>We may update this Privacy Policy from time to time. When we make changes, we will revise the "Last updated" date at the top of this page. If we make material changes, we will notify you by email (where we have your contact details) or by prominently posting a notice on our Site.</p>
-
-<h2 id="s16">16. Contact Us</h2>
-<p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact the data controller:</p>
+<h3>When you send or receive a friend request:</h3>
 <ul>
-<li>Name: Nazar Mishchenko ("Next10")</li>
-<li>Address: Hohenzollernstr. 51, 75177 Pforzheim, Germany</li>
-<li>Email: <a href="mailto:privacy@next10.live">privacy@next10.live</a></li>
-<li>Telephone: <a href="tel:+4916093512675">+49 160 93512675</a></li>
+<li>The other person can see your nickname and profile photo as part of the request</li>
 </ul>
-<p>We aim to respond to all enquiries within 5 business days.</p>
+<h3>On the leaderboard:</h3>
+<ul>
+<li>Only your percentile rank appears &#8212; no nickname, photo, or any identifying detail is shown to other users through the leaderboard itself</li>
+</ul>
+
+<h2 id="s7">7. Data Retention &amp; Account Deletion</h2>
+<p>We retain your data for as long as your account remains active, since it is necessary for the app's core functionality (sync, profile, leaderboard).</p>
+<p><strong>Deleting your account:</strong> You can delete your account at any time directly within the app. When you do:</p>
+<ul>
+<li>Your public profile, private app data (goals, habits, completion history), and friend connections are permanently deleted from our Firestore database</li>
+<li>Your authentication record is deleted from Firebase Authentication</li>
+<li>Any pending friend requests you sent or received are removed</li>
+<li>Friend relationship records held by your former friends are also removed as part of this process</li>
+</ul>
+<p><strong>Backups:</strong> Due to how our infrastructure provider (Google Firebase) operates, deleted data may persist briefly in backup systems before being permanently purged. This is standard across cloud infrastructure and does not mean your data remains accessible or in use &#8212; it is simply the technical process of full deletion propagating through backup layers.</p>
+
+<h2 id="s8">8. Children's Privacy</h2>
+<p>Next10 is rated 16+ on the App Store. It is intended for users aged 16 and older. If you are younger than 16, please only use the app with the permission and supervision of a parent or guardian.</p>
+<p>We do not have a technical way to verify a user's age beyond what Apple or Google's account systems require. If you are a parent or guardian and believe your child has used Next10 and provided personal data, you can contact us at <a href="mailto:nazar.mischenko13@gmail.com">nazar.mischenko13@gmail.com</a> to request that the data be reviewed or deleted, using the account deletion process described in Section 7.</p>
+<p>We do not use any user's data &#8212; regardless of age &#8212; for advertising or sale to third parties.</p>
+
+<h2 id="s9">9. Leaderboard Processing</h2>
+<p>Next10 includes an always-on leaderboard feature that shows you your percentile rank compared to other users, based on weekly and monthly habit and goal completion rates.</p>
+<p>To calculate this, our system compares the completion statistics described in Section 2.2 across all users. No nickname, profile photo, goal name, habit name, or any other identifying detail is included in this calculation's output or shown to any user through the leaderboard. You only see your own numeric percentile rank.</p>
+<p>Because this feature is a core, advertised part of the app, it is processed under the same legal basis as the rest of the app's functionality (contract necessity, Art. 6(1)(b) GDPR) &#8212; see Section 3.</p>
+
+<h2 id="s10">10. Your Rights</h2>
+<p>Under GDPR, you have the right to:</p>
+<ul>
+<li><strong>Access</strong> &#8212; request a copy of the personal data we hold about you</li>
+<li><strong>Rectification</strong> &#8212; correct inaccurate data (most profile/app data can be edited directly in the app)</li>
+<li><strong>Erasure</strong> &#8212; delete your account and all associated data, available directly in the app (Section 7), or by contacting us</li>
+<li><strong>Restriction</strong> &#8212; request that we limit processing of your data in certain circumstances</li>
+<li><strong>Object</strong> &#8212; object to processing based on legitimate interest (not currently applicable, as our processing is based on contract necessity &#8212; see Section 3)</li>
+<li><strong>Data portability</strong> &#8212; request your data in a structured, commonly used format</li>
+<li><strong>Withdraw consent</strong> &#8212; not applicable, as we do not rely on consent as a legal basis for any processing described in this policy</li>
+<li><strong>Lodge a complaint</strong> &#8212; with your local data protection authority. In Germany, you can find your competent authority via the Conference of the Independent Data Protection Authorities of the German Federal and State Governments (DSK)</li>
+</ul>
+<p>To exercise any of these rights, contact us at <a href="mailto:nazar.mischenko13@gmail.com">nazar.mischenko13@gmail.com</a>.</p>
+
+<h2 id="s11">11. Security</h2>
+<p>We take reasonable technical and organizational measures to protect your data, including:</p>
+<ul>
+<li>Encryption of data in transit between the app and our servers</li>
+<li>Access to our Firebase project restricted to the account owner (Nazar Mishchenko)</li>
+<li>Reliance on Firebase Authentication for credential handling, so passwords are never stored or accessible in plain text by us</li>
+<li>Firestore security rules that enforce the visibility boundaries described in Section 6 (e.g., private app data is technically inaccessible to any user other than its owner)</li>
+</ul>
+<p>No method of electronic storage or transmission is 100% secure. While we work to protect your data, we cannot guarantee absolute security.</p>
+
+<h2 id="s12">12. Changes to This Policy</h2>
+<p>We may update this privacy policy from time to time, for example if we add new features, change service providers, or as required by law. If we make material changes &#8212; such as adding a new sub-processor or changing the purpose for which your data is used &#8212; we will update the "Effective Date" below and, where appropriate, notify you within the app.</p>
+<p>We encourage you to review this policy periodically.</p>
+<p class="last-updated">Effective Date: 11.08.2026</p>
 
 <div class="footer-note">
 <p>&copy; 2026 Next10. All rights reserved. &nbsp;|&nbsp; <a href="/terms-of-service.html">Terms of Service</a> &nbsp;|&nbsp; <a href="/cookie-policy.html">Cookie Policy</a> &nbsp;|&nbsp; <a href="/impressum.html">Impressum</a></p>
