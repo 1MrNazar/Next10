@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next10 — FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111111;
+    --bg-elevated:#19140F;
+    --accent:#E8601C;
+    --accent-soft: rgba(232,96,28,0.14);
+    --accent-line: rgba(232,96,28,0.45);
+    --text-primary:#F3EFE6;
+    --text-secondary:#9A9184;
+    --text-tertiary:#615A4E;
+    --divider:#2A2520;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Source Serif 4', Georgia, serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text-primary);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  ::selection{background:var(--accent); color:#111;}
+  a{color:var(--accent);}
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    border-bottom:1px solid var(--divider);
+    overflow:hidden;
+    padding:96px 0 64px;
+  }
+  .hero-inner{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+    gap:24px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--text-secondary);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:6px;height:6px;
+    background:var(--accent);
+    display:inline-block;
+    transform:rotate(45deg);
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:20px 0 18px;
+  }
+  .hero p.sub{
+    font-family:var(--font-body);
+    font-size:18px;
+    color:var(--text-secondary);
+    max-width:46ch;
+    margin:0;
+  }
+  .radar{
+    justify-self:center;
+    width:100%;
+    max-width:340px;
+  }
+  .radar-ring{fill:none; stroke:var(--divider); stroke-width:1;}
+  .radar-spoke{stroke:var(--divider); stroke-width:1;}
+  .radar-plot{
+    fill:var(--accent-soft);
+    stroke:var(--accent);
+    stroke-width:1.5;
+  }
+  .radar-dot{fill:var(--accent);}
+  .radar-label{
+    font-family:var(--font-mono);
+    font-size:9px;
+    letter-spacing:0.08em;
+    fill:var(--text-tertiary);
+    text-transform:uppercase;
+  }
+  .radar-sweep{
+    transform-origin:200px 200px;
+    animation:sweep 7s linear infinite;
+  }
+  .radar-sweep line{
+    stroke:var(--accent);
+    stroke-width:1;
+    opacity:0.5;
+  }
+  @keyframes sweep{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .radar-sweep{animation:none;}
+  }
+  @media (max-width:720px){
+    .hero-inner{grid-template-columns:1fr; text-align:left;}
+    .radar{max-width:240px; margin-top:32px;}
+  }
+  /* ---------- CATEGORY NAV ---------- */
+  .catnav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(17,17,17,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--divider);
+  }
+  .catnav-inner{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+    display:flex;
+    gap:28px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .catnav-inner::-webkit-scrollbar{display:none;}
+  .catnav a{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--text-secondary);
+    text-decoration:none;
+    white-space:nowrap;
+    padding:16px 0;
+    border-bottom:2px solid transparent;
+  }
+  .catnav a:hover{color:var(--text-primary);}
+  /* ---------- MAIN ---------- */
+  main{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .cat{
+    max-width:720px;
+    padding:64px 0;
+    border-bottom:1px solid var(--divider);
+    scroll-margin-top:56px;
+  }
+  .cat:last-of-type{border-bottom:none;}
+  .cat-head{margin-bottom:32px;}
+  .cat-head h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:28px;
+    margin:10px 0 0;
+    letter-spacing:-0.01em;
+  }
+  .qa-list details{
+    border-bottom:1px solid var(--divider);
+  }
+  .qa-list details:first-child{border-top:1px solid var(--divider);}
+  .qa-list summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 0;
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:17px;
+    color:var(--text-primary);
+  }
+  .qa-list summary::-webkit-details-marker{display:none;}
+  .qa-list summary:hover{color:var(--accent);}
+  .mark{
+    position:relative;
+    width:14px;height:14px;
+    flex-shrink:0;
+    margin-top:5px;
+  }
+  .mark::before,.mark::after{
+    content:'';
+    position:absolute;
+    background:var(--accent);
+  }
+  .mark::before{width:14px; height:1px; top:6.5px; left:0;}
+  .mark::after{width:1px; height:14px; left:6.5px; top:0; transition:transform .2s ease;}
+  details[open] .mark::after{transform:rotate(90deg);}
+  .answer{
+    padding:0 0 26px;
+    max-width:60ch;
+  }
+  .answer p{
+    margin:0;
+    color:var(--text-secondary);
+    font-size:16.5px;
+  }
+  footer{
+    padding:56px 28px 72px;
+    text-align:center;
+  }
+  footer .mini-mark{
+    width:22px; height:22px;
+    margin:0 auto 14px;
+    display:block;
+  }
+  footer p{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--text-tertiary);
+    margin:4px 0;
+  }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Next10 — FAQ</span>
+        <h1>Built for the next ten years, not the next streak.</h1>
+        <p class="sub">Straight answers about the app, the thinking behind it, and how it actually works.</p>
+      </div>
+      <svg class="radar" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pentagon radar chart, the Next10 mark">
+        <polygon class="radar-ring" points="200,50 342.66,153.65 288.17,321.35 111.83,321.35 57.34,153.65"/>
+        <polygon class="radar-ring" points="200,100 295.11,169.10 258.78,280.90 141.22,280.90 104.89,169.10"/>
+        <polygon class="radar-ring" points="200,150 247.56,184.55 229.39,240.45 170.61,240.45 152.44,184.55"/>
+        <line class="radar-spoke" x1="200" y1="200" x2="200" y2="50"/>
+        <line class="radar-spoke" x1="200" y1="200" x2="342.66" y2="153.65"/>
+        <line class="radar-spoke" x1="200" y1="200" x2="288.17" y2="321.35"/>
+        <line class="radar-spoke" x1="200" y1="200" x2="111.83" y2="321.35"/>
+        <line class="radar-spoke" x1="200" y1="200" x2="57.34" y2="153.65"/>
+        <g class="radar-sweep">
+          <line x1="200" y1="200" x2="200" y2="50"/>
+        </g>
+        <polygon class="radar-plot" points="200,72.5 278.47,174.51 261.72,284.95 160.32,254.61 85.87,162.92"/>
+        <circle class="radar-dot" cx="200" cy="72.5" r="3.5"/>
+        <circle class="radar-dot" cx="278.47" cy="174.51" r="3.5"/>
+        <circle class="radar-dot" cx="261.72" cy="284.95" r="3.5"/>
+        <circle class="radar-dot" cx="160.32" cy="254.61" r="3.5"/>
+        <circle class="radar-dot" cx="85.87" cy="162.92" r="3.5"/>
+        <text class="radar-label" x="200" y="38" text-anchor="middle">HEALTH</text>
+        <text class="radar-label" x="358" y="150" text-anchor="start">CRAFT</text>
+        <text class="radar-label" x="300" y="345" text-anchor="middle">WEALTH</text>
+        <text class="radar-label" x="100" y="345" text-anchor="middle">MIND</text>
+        <text class="radar-label" x="42" y="150" text-anchor="end">BONDS</text>
+      </svg>
+    </div>
+  </header>
+  <nav class="catnav">
+    <div class="catnav-inner">
+      <a href="#idea">The idea</a>
+      <a href="#mechanics">How it works</a>
+      <a href="#access">Platform &amp; access</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#privacy">Data &amp; privacy</a>
+      <a href="#support">Support</a>
+    </div>
+  </nav>
+  <main>
+    <section id="idea" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">The idea</span>
+        <h2>What Next10 is, and who it's for</h2>
+      </div>
+      <div class="qa-list">
+        <details open>
+          <summary>What is Next10, and how is it different?<span class="mark"></span></summary>
+          <div class="answer"><p>Next10 helps you stay on track with your goals — not just check off another habit without knowing where it's leading. Most habit trackers show you a streak. Next10 shows you progress on the goal itself, over time, so you always know how far you've actually come.</p></div>
+        </details>
+        <details>
+          <summary>Who is Next10 for?<span class="mark"></span></summary>
+          <div class="answer"><p>Anyone serious about their goals — people who want to actually achieve them, not just track them.</p></div>
+        </details>
+        <details>
+          <summary>Why 10 years?<span class="mark"></span></summary>
+          <div class="answer"><p>Ten years is enough time to change your lifestyle — how you live, and who you become. Nobody builds something incredible overnight, and no habit changes your character overnight either. Ten years is the timeframe where real, lasting change actually happens.</p></div>
+        </details>
+      </div>
+    </section>
+    <section id="mechanics" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">How it works</span>
+        <h2>The mechanics behind the goals</h2>
+      </div>
+      <div class="qa-list">
+        <details>
+          <summary>How do I connect my long-term goals to daily habits?<span class="mark"></span></summary>
+          <div class="answer"><p>That's up to you. There's no one-size-fits-all formula — you decide which daily habits move you toward the goals that matter to you.</p></div>
+        </details>
+        <details>
+          <summary>How does Next10 avoid the "streak trap"?<span class="mark"></span></summary>
+          <div class="answer"><p>Next10 is built around consistency over the long run, not unbroken streaks. You won't lose the physique you built overnight, and you won't build it overnight either. Dipping from a streak now and then is normal — it's not a failure state.</p></div>
+        </details>
+        <details>
+          <summary>What happens if I miss a day or break a streak?<span class="mark"></span></summary>
+          <div class="answer"><p>Nothing happens. Next10 doesn't punish missed days. The app is built around your long-term goals, not the short-term completion of one or two habits — so skipping a day on one habit doesn't set back the bigger picture.</p></div>
+        </details>
+        <details>
+          <summary>Can I update my 10-year goals later?<span class="mark"></span></summary>
+          <div class="answer"><p>Yes — you can update your goals whenever you want.</p></div>
+        </details>
+        <details>
+          <summary>Does Next10 use AI?<span class="mark"></span></summary>
+          <div class="answer"><p>No. We keep AI out of Next10 on purpose — for privacy, and because AI can't replace your own intention. Next10 is built to be intentional: we don't want you entering some data and letting an algorithm hand you a plan you never actually follow through on. Real progress comes from you engaging with the plan, not from outsourcing it.</p></div>
+        </details>
+      </div>
+    </section>
+    <section id="access" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">Platform &amp; access</span>
+        <h2>Where you can use it</h2>
+      </div>
+      <div class="qa-list">
+        <details>
+          <summary>What platforms is Next10 available on?<span class="mark"></span></summary>
+          <div class="answer"><p>Next10 is currently iOS-only. An Android version is in the works.</p></div>
+        </details>
+        <details>
+          <summary>Does Next10 work offline?<span class="mark"></span></summary>
+          <div class="answer"><p>The core features work offline, so you can keep logging habits and goals without a connection. Anything that needs the cloud will simply sync the next time you're back online.</p></div>
+        </details>
+        <details>
+          <summary>Is there a web or desktop version?<span class="mark"></span></summary>
+          <div class="answer"><p>Not currently — Next10 is iOS-only for now.</p></div>
+        </details>
+      </div>
+    </section>
+    <section id="pricing" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Free to start, premium to go deeper</h2>
+      </div>
+      <div class="qa-list">
+        <details>
+          <summary>Is Next10 free?<span class="mark"></span></summary>
+          <div class="answer"><p>Yes, Next10 is free to start. Advanced stats and other premium features are available with a subscription.</p></div>
+        </details>
+        <details>
+          <summary>What's included in premium?<span class="mark"></span></summary>
+          <div class="answer"><p>Premium unlocks advanced stats, additional app icons, and more premium tools as we roll them out.</p></div>
+        </details>
+        <details>
+          <summary>Is there a trial period?<span class="mark"></span></summary>
+          <div class="answer"><p>Yes — every subscription starts with a 7-day free trial.</p></div>
+        </details>
+        <details>
+          <summary>How do I cancel my subscription?<span class="mark"></span></summary>
+          <div class="answer"><p>Cancel any time from your iPhone settings or the App Store, just like any other subscription.</p></div>
+        </details>
+      </div>
+    </section>
+    <section id="privacy" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">Data &amp; privacy</span>
+        <h2>What happens to your data</h2>
+      </div>
+      <div class="qa-list">
+        <details>
+          <summary>Is my personal data secure?<span class="mark"></span></summary>
+          <div class="answer"><p>Yes. Your data is stored in Firestore, Google's secure cloud database, and it's only ever used to give you the best possible experience in the app.</p></div>
+        </details>
+        <details>
+          <summary>Can I delete my account?<span class="mark"></span></summary>
+          <div class="answer"><p>Yes — you can delete your account any time from the app's settings.</p></div>
+        </details>
+        <details>
+          <summary>Does Next10 share my data with third parties?<span class="mark"></span></summary>
+          <div class="answer"><p>No. The only third parties involved are Firestore, for storing your data, and the App Store, for processing payments. Your data is never sold or shared for advertising.</p></div>
+        </details>
+      </div>
+    </section>
+    <section id="support" class="cat">
+      <div class="cat-head">
+        <span class="eyebrow">Support</span>
+        <h2>Getting help</h2>
+      </div>
+      <div class="qa-list">
+        <details>
+          <summary>How do I contact support?<span class="mark"></span></summary>
+          <div class="answer"><p>Message the Next10 support team directly from the app's settings.</p></div>
+        </details>
+        <details>
+          <summary>Is there a community I can join?<span class="mark"></span></summary>
+          <div class="answer"><p>Not yet — but it's something we're working on.</p></div>
+        </details>
+        <details>
+          <summary>How often is the app updated?<span class="mark"></span></summary>
+          <div class="answer"><p>There's no fixed schedule, but we're continually working on new features and improvements.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <svg class="mini-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="20,5 34.27,15.36 28.82,32.14 11.18,32.14 5.73,15.36" fill="none" stroke="#E8601C" stroke-width="1.5"/>
+      <polygon points="20,12 27,17 24,26 16,26 13,17" fill="rgba(232,96,28,0.25)" stroke="#E8601C" stroke-width="1"/>
+    </svg>
+    <p>NEXT10</p>
+    <p>Didn't find your answer? Message support from the app's Settings.</p>
+  </footer>
+</body>
+</html>
