@@ -60,7 +60,7 @@ Back to Home
 <div class="legal-container">
 <div class="legal-hero">
 <h1>Privacy Policy</h1>
-<p class="last-updated">Effective Date: 11.08.2026</p>
+<p class="last-updated">Effective Date: 26.08.2026</p>
 <p class="legal-intro">This privacy policy explains how Next10 collects, uses, stores, and protects your personal data when you use our app. We built Next10 to help you track your habits and goals, and we take your privacy seriously. Please read this policy carefully to understand your rights and how your data is handled.</p>
 </div>
 
@@ -90,16 +90,16 @@ Back to Home
 
 <h2 id="s2">2. What Data We Collect</h2>
 <h3>2.1 Account &amp; Authentication Data</h3>
-<p>Collected via Firebase Authentication when you register:</p>
+<p>Collected via Supabase Authentication when you register:</p>
 <ul>
 <li><strong>Google Sign-In:</strong> your Google account email and name</li>
 <li><strong>Apple Sign-In:</strong> your Apple ID email (or Apple's private relay email) and name</li>
 <li><strong>Email/password:</strong> the email and password you provide</li>
 </ul>
-<p>Purpose: to create and secure your account, and to verify your identity when you sign in. Your email and password are processed exclusively by Firebase Authentication and never reach our Firestore database.</p>
+<p>Purpose: to create and secure your account, and to verify your identity when you sign in. Your password is hashed and stored securely by Supabase Authentication and is never accessible in plain text by us.</p>
 
 <h3>2.2 Public Profile Data</h3>
-<p>Visible to other users (to friends, or to any user if your profile is not set to private) &#8212; stored at users/{uid}:</p>
+<p>Visible to other users (to friends, or to any user if your profile is not set to private) &#8212; stored in our profiles table:</p>
 <ul>
 <li>Nickname (display name), including a lowercase version used to make your nickname searchable by other users</li>
 <li>Profile photo</li>
@@ -111,7 +111,7 @@ Back to Home
 <p>Purpose: to let you build a public profile, be found by other users, and show your progress to friends without exposing what your goals or habits actually are.</p>
 
 <h3>2.3 Private App Data (Habits &amp; Goals)</h3>
-<p>Stored at users/{uid}/appdata/main &#8212; never visible to any other user, including friends. This data exists solely so your habits and goals are preserved and synced if you switch devices:</p>
+<p>Stored in our goals and completions tables &#8212; never visible to any other user, including friends. This data exists solely so your habits and goals are preserved and synced if you switch devices:</p>
 <ul>
 <li>Your name, app theme, onboarding status, and a copy of your profile photo</li>
 <li>Your full goals and habits: titles, schedules, reminder times, icons, deadlines</li>
@@ -132,77 +132,60 @@ Back to Home
 <h3>2.6 A Note on Free-Text Fields</h3>
 <p>Habit and goal titles are free text you choose yourself. If you voluntarily include sensitive information in these fields (e.g., referencing a health condition or medication), it is stored privately as described in 2.3 and is never shown to other users. We do not analyze or process this content for its meaning.</p>
 
+<h3>2.7 Analytics &amp; Usage Data</h3>
+<p>To understand how the app is used and to improve it over time, Next10 uses PostHog, a product analytics service. When you use the app, PostHog collects the following on our behalf:</p>
+<ul>
+<li>The names of screens you visit within the app (for example, "Home", "Tracker", "Statistics", "Profile", "Paywall"), and the order in which you navigate between them</li>
+<li>In-app events, specifically: when you open the app, when the app is moved to the background, when you complete registration (sign-up), when you sign in to an existing account, when you finish the onboarding flow, and when the paywall screen is shown to you or when you start a subscription</li>
+<li>Your user identifier &#8212; the anonymous account ID assigned by Supabase &#8212; linked to your email address after sign-in, so that events can be attributed to a consistent user profile across sessions</li>
+<li>Basic session and device metadata automatically collected by the PostHog iOS SDK, such as device type, operating system version, app version, and the time events occur</li>
+<li>Interaction signals such as rage clicks, meaning rapid repeated taps in the same area of the screen, which PostHog detects automatically and which we use to identify confusing or broken parts of the interface</li>
+</ul>
+<p>This data does not include the content of your goals, habit names, completion history, or any other private app data described in Section 2.3. It is used solely to understand usage patterns, diagnose problems, and make product improvements. It is not used for advertising and is not sold or shared with any party other than PostHog as described in Section 4.</p>
+
 <h2 id="s3">3. Purposes of Processing &amp; Legal Basis</h2>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Purpose</th><th>Data Used</th><th>Legal Basis</th></tr></thead>
-<tbody>
-<tr><td>Creating and securing your account</td><td>Auth data (2.1)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
-<tr><td>Verifying subscription/payment status</td><td>Account ID and subscription status, processed via Apple's In-App Purchase system, Google Play Billing, and/or a third-party subscription platform (see Section 4 for current sub-processors)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
-<tr><td>Syncing your habits and goals across devices</td><td>Private app data (2.3)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
-<tr><td>Public profile, friend search, and social features</td><td>Public profile &amp; friends data (2.2, 2.4)</td><td>Contract necessity (Art. 6(1)(b) GDPR)</td></tr>
-<tr><td>Leaderboard / percentile ranking</td><td>Computed completion statistics (2.2)</td><td>Contract necessity (Art. 6(1)(b) GDPR) &#8212; advertised as a built-in feature of the app</td></tr>
-</tbody>
-</table>
-</div>
+<p>Creating and securing your account &#8212; using your auth data (2.1) &#8212; is processed on the legal basis of contract necessity (Art. 6(1)(b) GDPR).</p>
+<p>Verifying subscription and payment status &#8212; using your account ID and subscription status, processed via Apple's In-App Purchase system, Google Play Billing, and/or a third-party subscription platform (see Section 4 for current sub-processors) &#8212; is processed on the legal basis of contract necessity (Art. 6(1)(b) GDPR).</p>
+<p>Syncing your habits and goals across devices &#8212; using your private app data (2.3) &#8212; is processed on the legal basis of contract necessity (Art. 6(1)(b) GDPR).</p>
+<p>Providing your public profile, friend search, and social features &#8212; using your public profile and friends data (2.2, 2.4) &#8212; is processed on the legal basis of contract necessity (Art. 6(1)(b) GDPR).</p>
+<p>The leaderboard and percentile ranking feature &#8212; using your computed completion statistics (2.2) &#8212; is processed on the legal basis of contract necessity (Art. 6(1)(b) GDPR), as it is an advertised built-in feature of the app.</p>
+<p>Collecting analytics and usage data to understand how the app is used and to improve it &#8212; using your analytics data (2.7) &#8212; is processed on the legal basis of legitimate interest (Art. 6(1)(f) GDPR). Our legitimate interest is to maintain a functioning, improving product by understanding user behavior at an aggregate and individual-session level. We have assessed that this interest is not overridden by your privacy rights, given that no sensitive or content-level data is included, that the analytics are conducted using an EU-hosted service, and that we do not use this data for advertising or profiling beyond product improvement.</p>
 
 <h2 id="s4">4. Sub-processors (Third Parties We Use)</h2>
 <p>We use the following service providers to operate Next10. Each processes personal data only on our instructions and is bound by data processing agreements:</p>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Sub-processor</th><th>What They Process</th><th>Location</th></tr></thead>
-<tbody>
-<tr><td>Google Firebase (Firestore)</td><td>Public profile, private app data, friends/social data</td><td>EU (eur3 &#8212; Belgium/Netherlands)</td></tr>
-<tr><td>Google Firebase (Authentication)</td><td>Email, name, sign-in credentials</td><td>Global/US, transferred under the EU-U.S. Data Privacy Framework</td></tr>
-<tr><td>Google (Google Sign-In)</td><td>Google account email and name, at your choice &#8212; see Google's Privacy Policy</td><td>Governed by Google's own privacy policy</td></tr>
-<tr><td>Apple (Sign in with Apple)</td><td>Apple ID email/relay email and name, at your choice &#8212; see Apple's Privacy Policy</td><td>Governed by Apple's own privacy policy</td></tr>
-<tr><td>Apple In-App Purchase / Google Play Billing / third-party processor &#8212; TBD</td><td>Subscription status</td><td>TBD once selected</td></tr>
-</tbody>
-</table>
-</div>
+<p><strong>Supabase (PostgreSQL Database &amp; File Storage)</strong> processes your public profile, private app data, friends and social data, and profile photos. Your data is stored in Supabase's EU-region infrastructure, hosted on AWS and physically located within the European Economic Area.</p>
+<p><strong>Supabase (Authentication)</strong> processes your email, name, and sign-in credentials. These are also stored within Supabase's EU-region infrastructure on AWS, within the European Economic Area.</p>
+<p><strong>Google (Google Sign-In)</strong> processes your Google account email and name if you choose to sign in with Google. This is governed by Google's own privacy policy.</p>
+<p><strong>Apple (Sign in with Apple)</strong> processes your Apple ID email (or Apple's private relay email) and name if you choose to sign in with Apple. This is governed by Apple's own privacy policy.</p>
+<p><strong>PostHog (Product Analytics)</strong> processes your analytics and usage data as described in Section 2.7, including screen views, in-app events, your user identifier, and device metadata. PostHog is used to help us understand how the app is navigated and where issues arise, so we can improve the product. Your data is stored on PostHog's EU Cloud infrastructure, physically located within the European Economic Area (Frankfurt, Germany, hosted on AWS eu-central-1). PostHog, Inc. is a US-based company acting as a data processor under a Data Processing Agreement. Any access to your data by PostHog personnel from outside the EEA is governed by Standard Contractual Clauses approved by the European Commission.</p>
+<p><strong>Apple In-App Purchase / Google Play Billing / third-party subscription processor (TBD)</strong> processes your subscription status. The specific provider and location will be confirmed once selected.</p>
 
 <h2 id="s5">5. International Data Transfers</h2>
-<p>Most of your data (public profile, private app data, friends/social data) is stored in Google Firebase's EU region (eur3, physically located in Belgium and the Netherlands) and does not leave the European Union.</p>
-<p>However, authentication data (your email, name, and sign-in credentials) is processed by Firebase Authentication on infrastructure that may be located outside the EU, including in the United States. This transfer is carried out under the EU-U.S. Data Privacy Framework (DPF), the legal mechanism recognized by the European Commission for transfers of personal data from the EU to certified U.S. companies. Google LLC is certified under this framework.</p>
+<p>All of your core data &#8212; including your public profile, private app data, friends and social data, profile photos, and authentication records &#8212; is stored in Supabase's EU-region infrastructure, hosted on AWS and physically located within the European Economic Area. Your data does not leave the EEA as a result of storage or normal app operation.</p>
+<p>Supabase, Inc. is a US-based company acting as a data processor under a Data Processing Agreement (DPA). Any access to your data by Supabase personnel from outside the EEA &#8212; for example, for infrastructure support or security monitoring &#8212; is governed by Standard Contractual Clauses (SCCs) as approved by the European Commission, which is the legal mechanism recognized for transfers of personal data from the EU to countries without an adequacy decision.</p>
+<p>Your analytics data processed by PostHog is stored on PostHog's EU Cloud infrastructure, physically located within the European Economic Area (Frankfurt, Germany). PostHog, Inc. is a US-based company, and any access to this data by PostHog personnel from outside the EEA is likewise governed by Standard Contractual Clauses as approved by the European Commission.</p>
 <p>If you sign in using Google or Apple, those providers may also process limited data outside the EU as part of their own authentication systems, governed by their respective privacy policies (see Section 4).</p>
 
 <h2 id="s6">6. Data Visible to Other Users</h2>
 <p>Unlike most of your data, some information in Next10 is visible to other people using the app. Here's exactly what is shown, to whom, and when:</p>
-<h3>If your profile is public (default, unless you set it to private):</h3>
-<ul>
-<li>Your nickname is searchable by any user of the app</li>
-<li>Your profile photo is visible to any user who finds your profile</li>
-<li>Your completion statistics (daily/weekly/monthly/yearly percentages and streak) are visible as raw numbers only &#8212; no goal names, habit names, or any other detail about what you're actually working on</li>
-</ul>
-<h3>If your profile is set to private:</h3>
-<ul>
-<li>Your profile is not discoverable via search</li>
-<li>Only your confirmed friends can see your nickname, profile photo, and completion statistics</li>
-</ul>
-<h3>To your friends specifically (regardless of public/private setting):</h3>
-<ul>
-<li>The same profile and statistics described above</li>
-<li>Nothing from your private app data (Section 2.3) &#8212; your actual goals, habit names, schedules, and completion history are never visible to friends or any other user, under any setting</li>
-</ul>
-<h3>When you send or receive a friend request:</h3>
-<ul>
-<li>The other person can see your nickname and profile photo as part of the request</li>
-</ul>
-<h3>On the leaderboard:</h3>
-<ul>
-<li>Only your percentile rank appears &#8212; no nickname, photo, or any identifying detail is shown to other users through the leaderboard itself</li>
-</ul>
+<p>If your profile is public (the default, unless you set it to private): your nickname is searchable by any user of the app; your profile photo is visible to any user who finds your profile; and your completion statistics (daily, weekly, monthly, and yearly percentages plus your streak) are visible as raw numbers only &#8212; no goal names, habit names, or any other detail about what you're actually working on.</p>
+<p>If your profile is set to private: your profile is not discoverable via search, and only your confirmed friends can see your nickname, profile photo, and completion statistics.</p>
+<p>To your friends specifically, regardless of whether your profile is public or private: they see the same profile and statistics described above, and nothing from your private app data (Section 2.3). Your actual goals, habit names, schedules, and completion history are never visible to friends or any other user, under any setting.</p>
+<p>When you send or receive a friend request: the other person can see your nickname and profile photo as part of the request.</p>
+<p>On the leaderboard: only your percentile rank appears &#8212; no nickname, photo, or any identifying detail is shown to other users through the leaderboard itself.</p>
+<p>Analytics data collected by PostHog (Section 2.7) is never shown to other users. It is accessible only to us as the data controller and to PostHog as the data processor.</p>
 
 <h2 id="s7">7. Data Retention &amp; Account Deletion</h2>
 <p>We retain your data for as long as your account remains active, since it is necessary for the app's core functionality (sync, profile, leaderboard).</p>
 <p><strong>Deleting your account:</strong> You can delete your account at any time directly within the app. When you do:</p>
 <ul>
-<li>Your public profile, private app data (goals, habits, completion history), and friend connections are permanently deleted from our Firestore database</li>
-<li>Your authentication record is deleted from Firebase Authentication</li>
+<li>Your public profile, private app data (goals, habits, completion history), and friend connections are permanently deleted from our Supabase database</li>
+<li>Your authentication record is deleted from Supabase Authentication</li>
 <li>Any pending friend requests you sent or received are removed</li>
 <li>Friend relationship records held by your former friends are also removed as part of this process</li>
+<li>Your user profile in PostHog is dissociated from your account, and we will submit a deletion request to PostHog for any personal data associated with your user identifier. Analytics events that do not contain identifying information may be retained in aggregate form.</li>
 </ul>
-<p><strong>Backups:</strong> Due to how our infrastructure provider (Google Firebase) operates, deleted data may persist briefly in backup systems before being permanently purged. This is standard across cloud infrastructure and does not mean your data remains accessible or in use &#8212; it is simply the technical process of full deletion propagating through backup layers.</p>
+<p><strong>Backups:</strong> Due to how our infrastructure provider (Supabase/AWS) operates, deleted data may persist briefly in backup systems before being permanently purged. This is standard across cloud infrastructure and does not mean your data remains accessible or in use &#8212; it is simply the technical process of full deletion propagating through backup layers.</p>
 
 <h2 id="s8">8. Children's Privacy</h2>
 <p>Next10 is rated 16+ on the App Store. It is intended for users aged 16 and older. If you are younger than 16, please only use the app with the permission and supervision of a parent or guardian.</p>
@@ -221,7 +204,7 @@ Back to Home
 <li><strong>Rectification</strong> &#8212; correct inaccurate data (most profile/app data can be edited directly in the app)</li>
 <li><strong>Erasure</strong> &#8212; delete your account and all associated data, available directly in the app (Section 7), or by contacting us</li>
 <li><strong>Restriction</strong> &#8212; request that we limit processing of your data in certain circumstances</li>
-<li><strong>Object</strong> &#8212; object to processing based on legitimate interest (not currently applicable, as our processing is based on contract necessity &#8212; see Section 3)</li>
+<li><strong>Object</strong> &#8212; object to processing based on legitimate interest. This right is specifically relevant to our analytics processing (Section 2.7), which is based on legitimate interest (Art. 6(1)(f) GDPR). If you wish to object to the collection of your analytics data, you can contact us at the email address below and we will work with you to address your request.</li>
 <li><strong>Data portability</strong> &#8212; request your data in a structured, commonly used format</li>
 <li><strong>Withdraw consent</strong> &#8212; not applicable, as we do not rely on consent as a legal basis for any processing described in this policy</li>
 <li><strong>Lodge a complaint</strong> &#8212; with your local data protection authority. In Germany, you can find your competent authority via the Conference of the Independent Data Protection Authorities of the German Federal and State Governments (DSK)</li>
@@ -232,16 +215,17 @@ Back to Home
 <p>We take reasonable technical and organizational measures to protect your data, including:</p>
 <ul>
 <li>Encryption of data in transit between the app and our servers</li>
-<li>Access to our Firebase project restricted to the account owner (Nazar Mishchenko)</li>
-<li>Reliance on Firebase Authentication for credential handling, so passwords are never stored or accessible in plain text by us</li>
-<li>Firestore security rules that enforce the visibility boundaries described in Section 6 (e.g., private app data is technically inaccessible to any user other than its owner)</li>
+<li>Access to our Supabase project restricted to the account owner (Nazar Mishchenko)</li>
+<li>Reliance on Supabase Authentication for credential handling, so passwords are never stored or accessible in plain text by us</li>
+<li>Supabase Row-Level Security (RLS) policies that enforce the visibility boundaries described in Section 6 (e.g., private app data is technically inaccessible to any user other than its owner)</li>
+<li>Analytics data transmitted to PostHog is sent over encrypted HTTPS connections and stored in PostHog's EU Cloud infrastructure</li>
 </ul>
 <p>No method of electronic storage or transmission is 100% secure. While we work to protect your data, we cannot guarantee absolute security.</p>
 
 <h2 id="s12">12. Changes to This Policy</h2>
 <p>We may update this privacy policy from time to time, for example if we add new features, change service providers, or as required by law. If we make material changes &#8212; such as adding a new sub-processor or changing the purpose for which your data is used &#8212; we will update the "Effective Date" below and, where appropriate, notify you within the app.</p>
 <p>We encourage you to review this policy periodically.</p>
-<p class="last-updated">Effective Date: 11.08.2026</p>
+<p class="last-updated">Effective Date: 26.08.2026</p>
 
 <div class="footer-note">
 <p>&copy; 2026 Next10. All rights reserved. &nbsp;|&nbsp; <a href="/terms-of-service.html">Terms of Service</a> &nbsp;|&nbsp; <a href="/cookie-policy.html">Cookie Policy</a> &nbsp;|&nbsp; <a href="/impressum.html">Impressum</a></p>
